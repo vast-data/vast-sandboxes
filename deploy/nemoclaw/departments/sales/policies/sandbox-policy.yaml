@@ -1,0 +1,105 @@
+
+version: 1
+
+filesystem_policy:
+  include_workdir: true
+  read_only:
+    - /usr
+    - /lib
+    - /lib64
+    - /bin
+    - /sbin
+    - /etc
+    - /app
+    - /proc
+    - /dev/urandom
+  read_write:
+    - /workspace
+    - /tmp
+    - /dev/null
+
+landlock:
+  compatibility: best_effort
+
+process:
+  run_as_user: "10002"
+  run_as_group: "10002"
+
+network_policies:
+  # enforcement: string enforce (gateway 0.0.85).
+
+  vast_rag_mcp:
+    name: "vast-rag MCP (earnings-call corpus)"
+    endpoints:
+      - host: vastclaw-mcp-sales.vastclaw-sales.svc.cluster.local
+        port: 8080
+        protocol: mcp
+        enforcement: enforce
+        json_rpc_max_body_bytes: 1048576
+        mcp:
+          strict_tool_names: true
+        rules:
+          - allow:
+              method: initialize
+          - allow:
+              method: notifications/initialized
+          - allow:
+              method: tools/list
+          - allow:
+              method: tools/call
+              params:
+                name:
+                  any:
+                    - transcript_search
+                    - similar_calls
+                    - list_call_metadata
+    binaries:
+      - path: /usr/bin/node
+      - path: /usr/local/bin/openclaw
+      - path: /usr/local/bin/python*
+      - path: /usr/bin/python3
+
+  nvidia_api:
+    name: "NVIDIA NIM (chat + embeddings)"
+    endpoints:
+      - host: "__NIM_CHAT_HOST__"
+        port: __NIM_CHAT_PORT__
+        protocol: rest
+        enforcement: enforce
+        rules:
+          - allow:
+              method: POST
+              path: /v1/chat/completions
+          - allow:
+              method: POST
+              path: /v1/completions
+      - host: "__NIM_EMBED_HOST__"
+        port: __NIM_EMBED_PORT__
+        protocol: rest
+        enforcement: enforce
+        rules:
+          - allow:
+              method: POST
+              path: /v1/embeddings
+    binaries:
+      - path: /usr/local/bin/python*
+      - path: /usr/bin/python3
+      - path: /usr/bin/node
+      - path: /usr/local/bin/openclaw
+
+  vastdb_data_plane:
+    name: "VAST DataBase + S3 (spans, corpus, S3 tools)"
+    endpoints:
+      - host: "__VAST_S3_HOST__"
+        port: 80
+      - host: "__VAST_S3_HOST__"
+        port: 443
+      - host: "__VAST_VDB_HOST__"
+        port: 80
+      - host: "__VAST_VDB_HOST__"
+        port: 443
+      - host: "__VAST_VMS_HOST__"
+        port: 443
+    binaries:
+      - path: /usr/local/bin/python*
+      - path: /usr/bin/python3

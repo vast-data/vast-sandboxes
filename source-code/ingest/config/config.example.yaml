@@ -1,0 +1,33 @@
+# vast-claw ingest config EXAMPLE — copy to config.yaml and fill secrets
+
+# --- Hosted NVIDIA NIM (NGC) : embeddings ---
+nim:
+  base_url: "https://integrate.api.nvidia.com/v1"
+  api_key: "REPLACE_ME_NGC_API_KEY"                 # or export NIM_API_KEY=nvapi-...
+  embed_model: "nvidia/nv-embedqa-e5-v5"
+  embed_dim: 1024
+  batch_size: 64
+  request_timeout_seconds: 120.0
+
+# --- VAST data-plane credentials ---
+vast:
+  access_key: "REPLACE_ME_VAST_ACCESS_KEY"          # or export VAST_ACCESS_KEY=...
+  secret_key: "REPLACE_ME_VAST_SECRET_KEY"          # or export VAST_SECRET_KEY=...
+
+# --- VastDB target (Earnings-21 public earnings-call corpus) ---
+vdb:
+  endpoint: "http://REPLACE_ME_VASTDB_VIP"          # or export VASTDB_ENDPOINT=...
+  bucket: "earnings-calls"
+  schema: "earnings21"
+  table: "call_chunks"
+  ssl_verify: false
+  adbc_driver_path: "/opt/adbc-driver/libadbc_driver_vastdb.so"
+
+s3:
+  endpoint: "http://REPLACE_ME_S3_VIP"
+  ssl_verify: false
+
+ingest:
+  # ACL / tenancy column on every row. Sales + finance share this corpus;
+  department: "sales"
+  data_dir: "data/calls"

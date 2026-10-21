@@ -1,0 +1,145 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vastclaw-workflow-ui-backend
+  namespace: vastclaw-observability
+  labels:
+    app.kubernetes.io/name: vastclaw-workflow-ui-backend
+    app.kubernetes.io/part-of: vastclaw
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: vastclaw-workflow-ui-backend
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: vastclaw-workflow-ui-backend
+    spec:
+      containers:
+        - name: backend
+          image: __VC_BACKEND_IMAGE__
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet: { path: /healthz, port: 8080 }
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+          livenessProbe:
+            httpGet: { path: /healthz, port: 8080 }
+            initialDelaySeconds: 15
+            periodSeconds: 20
+            timeoutSeconds: 3
+            failureThreshold: 3
+          resources:
+            requests: { cpu: 100m, memory: 256Mi }
+            limits: { cpu: "1", memory: 1Gi }
+          volumeMounts:
+            - name: config
+              mountPath: /etc/secrets
+              readOnly: true
+      volumes:
+        - name: config
+          secret:
+            secretName: vastclaw-workflow-ui-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vastclaw-workflow-ui-backend
+  namespace: vastclaw-observability
+  labels:
+    app.kubernetes.io/part-of: vastclaw
+spec:
+  selector:
+    app.kubernetes.io/name: vastclaw-workflow-ui-backend
+  ports:
+    - port: 8080
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vastclaw-workflow-ui-frontend
+  namespace: vastclaw-observability
+  labels:
+    app.kubernetes.io/name: vastclaw-workflow-ui-frontend
+    app.kubernetes.io/part-of: vastclaw
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: vastclaw-workflow-ui-frontend
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: vastclaw-workflow-ui-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: __VC_FRONTEND_IMAGE__
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet: { path: /, port: 80 }
+            initialDelaySeconds: 3
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+          livenessProbe:
+            httpGet: { path: /, port: 80 }
+            initialDelaySeconds: 10
+            periodSeconds: 20
+            timeoutSeconds: 3
+            failureThreshold: 3
+          resources:
+            requests: { cpu: 50m, memory: 64Mi }
+            limits: { cpu: 500m, memory: 256Mi }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vastclaw-workflow-ui-frontend
+  namespace: vastclaw-observability
+  labels:
+    app.kubernetes.io/part-of: vastclaw
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: vastclaw-workflow-ui-frontend
+  ports:
+    - port: 80
+      targetPort: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vastclaw-workflow-ui-frontend
+  namespace: vastclaw-observability
+  labels:
+    app.kubernetes.io/part-of: vastclaw
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - vastclaw.solutions.vastdata.com
+      secretName: TLS_SECRET_NAME
+  rules:
+    - host: vastclaw.solutions.vastdata.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vastclaw-workflow-ui-frontend
+                port:
+                  number: 80

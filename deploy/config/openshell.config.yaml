@@ -1,0 +1,16 @@
+
+departments: "sales finance"
+
+# OpenShell Helm chart — OCI artifact ghcr.io/nvidia/openshell/helm-chart.
+chart_repository: "oci://ghcr.io/nvidia/openshell"
+chart_name: "helm-chart"
+chart_version: "0.0.85"
+
+agent_sandbox_version: "v0.5.1"
+
+workspace_storage_size: "10Gi"
+
+image_pull_secret: ""
+
+workspace_storage_class: "vastdata-block"
+make_storage_class_default: "false"

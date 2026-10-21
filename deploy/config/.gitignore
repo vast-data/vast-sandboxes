@@ -1,0 +1,5 @@
+# Filled deploy declaration. Copy workflow-ui.config.example.yaml and fill it locally.
+workflow-ui.config.yaml
+
+# Access key created by deploy. Kept out of the declaration file.
+vast-access.yaml

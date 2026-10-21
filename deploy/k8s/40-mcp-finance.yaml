@@ -1,0 +1,73 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vastclaw-mcp-finance
+  namespace: vastclaw-finance
+  labels:
+    app.kubernetes.io/name: vastclaw-mcp-tools
+    app.kubernetes.io/part-of: vastclaw
+    vastclaw.vastdata.com/department: finance
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: vastclaw-mcp-finance
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: vastclaw-mcp-finance
+    spec:
+      containers:
+        - name: mcp-server
+          image: __VC_MCP_IMAGE__
+          imagePullPolicy: Always
+          args: ["--transport", "sse", "--port", "8080"]
+          ports:
+            - containerPort: 8080
+          # SSE endpoint holds the connection open, so probe the socket, not an HTTP path.
+          readinessProbe:
+            tcpSocket: { port: 8080 }
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+          livenessProbe:
+            tcpSocket: { port: 8080 }
+            initialDelaySeconds: 15
+            periodSeconds: 20
+            timeoutSeconds: 3
+            failureThreshold: 3
+          env:
+            - name: VASTCLAW_AGENT_NAME
+              value: "finance-mcp"
+            - name: VASTCLAW_DEPARTMENT
+              value: "finance"
+            - name: VASTCLAW_USER
+              value: "system"
+          volumeMounts:
+            - name: config
+              mountPath: /etc/secrets
+              readOnly: true
+          resources:
+            requests: { cpu: 100m, memory: 256Mi }
+            limits: { cpu: "1", memory: 1Gi }
+      volumes:
+        - name: config
+          secret:
+            secretName: vastclaw-mcp-finance-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vastclaw-mcp-finance
+  namespace: vastclaw-finance
+  labels:
+    app.kubernetes.io/part-of: vastclaw
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: vastclaw-mcp-finance
+  ports:
+    - port: 8080
+      targetPort: 8080

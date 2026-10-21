@@ -1,0 +1,21 @@
+
+workload:
+  kind: statefulset
+
+server:
+  logLevel: info
+  disableTls: true
+  auth:
+    # Trusted-cluster e2e only. Backend is the sole CreateSandbox caller.
+    allowUnauthenticatedUsers: true
+  # Prefer Always so sandbox pods pick up rebuilt vc-backend:latest without eviction.
+  sandboxImagePullPolicy: Always
+
+pkiInitJob:
+  enabled: true
+
+# Restrict SSH ingress on sandbox pods to the gateway only.
+networkPolicy:
+  enabled: true
+
+imagePullSecrets: []

@@ -1,0 +1,25 @@
+# vast-claw Step 0 deps — single environment (prepare + ingest + search).
+#
+# All vastdb / ADBC / pyarrow versions are pinned to the exact versions used in
+# Keep the VastDB SDK, ADBC driver manager, and PyArrow versions compatible:
+# These three are used together here (SDK writes + ADBC vector search in one env).
+#
+# duckdb / ibis are NOT pinned because the Step-0 code doesn't import them. When the
+# Step-1 DataEngine function needs them it will pin ibis-framework[duckdb]==9.0.0,
+# exactly as vss-blueprint's writer does.
+#
+# vastdb 1.x (and 2.x) are on PUBLIC PyPI as py3-none-any wheels (requires >=3.9).
+# vss-blueprint installs them because it builds FROM python:3.10-slim, whose default
+# index is pypi.org. If your pip is pointed at an internal mirror that only carries
+# vastdb 0.0.5.x, install against public PyPI:
+#   pip install -r requirements.txt --index-url https://pypi.org/simple
+
+# NOTE: pins are lower-bounds, not exact, so installing into a shared venv (which may
+# already have newer pyarrow/adbc/pydantic for google-genai etc.) does NOT downgrade them.
+# The only version that matters is vastdb==1.3.2 (SDK writes must match the cluster).
+vastdb==1.3.2
+adbc-driver-manager>=1.0.0
+pyarrow>=15,<17
+pydantic>=2.9,<3
+requests>=2.31
+PyYAML>=6.0.1

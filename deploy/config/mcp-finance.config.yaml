@@ -1,0 +1,29 @@
+# Finance MCP config. Deploy renders this into vastclaw-mcp-finance-config.
+
+# --- Static VAST key (app-user); used for VastDB (RAG/memory) + S3 ----------
+vast:
+  access_key: "__VAST_ACCESS_KEY__"
+  secret_key: "__VAST_SECRET_KEY__"
+
+# --- VastDB: RAG corpus + agent memory --------------------------------------
+vdb:
+  endpoint: "__VAST_VDB_ENDPOINT__"
+  # Earnings-21 corpus.
+  rag_bucket: earnings-calls
+  rag_schema: earnings21
+  rag_table: call_chunks
+  # Corpus rows are tagged department=sales.
+  rag_department_scope: sales
+  # Agent long-term memory — one schema per department inside vastclaw-db.
+  memory_bucket: vastclaw-db
+  memory_schema: memory_finance
+  telemetry_bucket: vastclaw-db
+  telemetry_schema: telemetry
+  ssl_verify: false
+  adbc_driver_path: /opt/adbc-driver/libadbc_driver_vastdb.so
+  embedding_dim: 1024     # must match the corpus vector width (nv-embedqa-e5-v5 = 1024)
+
+# --- S3 (static key; used by s3_* tools, not by RAG) ------------------------
+s3:
+  endpoint: "__VAST_S3_ENDPOINT__"
+  ssl_verify: false

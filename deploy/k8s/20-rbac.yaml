@@ -1,0 +1,181 @@
+
+# --- Backend provisions PVCs + Jobs + a config secret per sub-agent -------------
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: vastclaw-ui-pvc-provisioner
+  namespace: vastclaw-sales                 # vastclaw-<department>
+  labels:
+    app.kubernetes.io/part-of: vastclaw
+rules:
+  - apiGroups: [""]
+    resources: ["persistentvolumeclaims"]
+    verbs: ["get", "list", "watch", "create", "delete"]
+  - apiGroups: ["agents.x-k8s.io"]
+    resources: ["sandboxes"]
+    verbs: ["get", "list", "watch", "delete"]
+  - apiGroups: [""]
+    resources: ["secrets"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  - apiGroups: [""]
+    resources: ["configmaps"]
+    verbs: ["get", "list", "watch"]
+  # Head-PVC seed jobs before fan-out, deploy teardown.
+  - apiGroups: ["batch"]
+    resources: ["jobs"]
+    verbs: ["get", "list", "watch", "create", "delete"]
+  # VolumeSnapshot checkpoints + restore-from-snapshot (block CSI primitive).
+  - apiGroups: ["snapshot.storage.k8s.io"]
+    resources: ["volumesnapshots"]
+    verbs: ["get", "list", "watch", "create", "delete"]
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list", "watch", "create", "delete", "deletecollection"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: vastclaw-ui-pvc-provisioner
+  namespace: vastclaw-sales
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: vastclaw-ui-pvc-provisioner
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: vastclaw-observability
+---
+# --- Admin control plane: roll department deployments, read pod health ----------
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: vastclaw-ui-admin-control
+  namespace: vastclaw-sales
+  labels:
+    app.kubernetes.io/part-of: vastclaw
+rules:
+  - apiGroups: ["apps"]
+    resources: ["deployments"]
+    verbs: ["get", "list", "watch", "patch"]
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: [""]
+    resources: ["pods/exec"]
+    verbs: ["create", "get"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: vastclaw-ui-admin-control
+  namespace: vastclaw-sales
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: vastclaw-ui-admin-control
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: vastclaw-observability
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: vastclaw-ui-pvc-provisioner
+  namespace: vastclaw-finance
+  labels:
+    app.kubernetes.io/part-of: vastclaw
+rules:
+  - apiGroups: [""]
+    resources: ["persistentvolumeclaims"]
+    verbs: ["get", "list", "watch", "create", "delete"]
+  - apiGroups: ["agents.x-k8s.io"]
+    resources: ["sandboxes"]
+    verbs: ["get", "list", "watch", "delete"]
+  - apiGroups: [""]
+    resources: ["secrets"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  - apiGroups: [""]
+    resources: ["configmaps"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["batch"]
+    resources: ["jobs"]
+    verbs: ["get", "list", "watch", "create", "delete"]
+  - apiGroups: ["snapshot.storage.k8s.io"]
+    resources: ["volumesnapshots"]
+    verbs: ["get", "list", "watch", "create", "delete"]
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list", "watch", "create", "delete", "deletecollection"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: vastclaw-ui-pvc-provisioner
+  namespace: vastclaw-finance
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: vastclaw-ui-pvc-provisioner
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: vastclaw-observability
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: vastclaw-ui-admin-control
+  namespace: vastclaw-finance
+  labels:
+    app.kubernetes.io/part-of: vastclaw
+rules:
+  - apiGroups: ["apps"]
+    resources: ["deployments"]
+    verbs: ["get", "list", "watch", "patch"]
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: [""]
+    resources: ["pods/exec"]
+    verbs: ["create", "get"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: vastclaw-ui-admin-control
+  namespace: vastclaw-finance
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: vastclaw-ui-admin-control
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: vastclaw-observability
+---
+# --- Cluster-scoped: reap Released PVs (dept SCs use reclaimPolicy: Retain) ------
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: vastclaw-ui-pv-reaper
+  labels:
+    app.kubernetes.io/part-of: vastclaw
+rules:
+  - apiGroups: [""]
+    resources: ["persistentvolumes"]
+    verbs: ["get", "list", "watch", "delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: vastclaw-ui-pv-reaper
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: vastclaw-ui-pv-reaper
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: vastclaw-observability

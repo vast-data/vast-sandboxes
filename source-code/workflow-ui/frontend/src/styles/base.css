@@ -1,0 +1,94 @@
+:root {
+  /* Cool slate / graphite — desaturated from the old heavy navy and lifted two
+     more stops lighter so the UI reads calmer on the eyes while staying dark. */
+  --bg-primary:
+  --bg-nav:
+  --bg-card:
+  --bg-card-hover:
+  --bg-input:
+  --bg-table-header:
+
+  --border:
+  --border-subtle:
+  --border-accent:
+
+  --accent:
+  --accent-hover:
+  --accent-dim:
+  --positive:
+
+  /* High-contrast text on dark surfaces. Older tokens pushed secondary copy too far
+     into gray (#7a898e) — hard to read on graphite cards. Hierarchy is brightness +
+     weight, not muddy low-contrast gray. */
+  --text-primary:
+  --text-secondary:
+  --text-dim:
+  --text-muted:
+  --text: var(--text-primary);
+
+  --success:
+  --warning:
+  --danger:
+  --danger-bg:
+  --running:
+
+  /* Inter for UI/body (clean, enterprise-grade), Sora for display headings (modern
+     geometric grotesque) — the pairing reads far more "mature" than a single humanist. */
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Sora", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-code: "Source Code Pro", "JetBrains Mono", monospace;
+
+  --sp-xxs: 6px;
+  --sp-xs: 8px;
+  --sp-sm: 12px;
+  --sp-md: 16px;
+  --sp-lg: 20px;
+  --sp-xl: 24px;
+  --sp-xxl: 32px;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-pill: 100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  /* Crisper glyph rendering + slightly tighter default tracking = more premium feel. */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.006em;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(900px 520px at 12% -8%, rgba(115, 200, 253, 0.06), transparent 60%),
+    radial-gradient(900px 640px at 100% 2%, rgba(61, 220, 151, 0.05), transparent 55%),
+    radial-gradient(circle at 50% 118%, rgba(124, 120, 200, 0.05), transparent 60%);
+  background-attachment: fixed;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Display typeface + tighter tracking on headings — grotesques read "designed", not
+   default. Sizes stay defined per-component; this only sets family + rhythm. */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+

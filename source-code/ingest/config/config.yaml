@@ -1,0 +1,32 @@
+
+# --- Hosted NVIDIA NIM (NGC) : embeddings (and later LLM/rerank) ---
+nim:
+  base_url: "https://integrate.api.nvidia.com/v1"   # OpenAI-compatible
+  api_key: "CHANGE_ME_NVIDIA_API_KEY"
+  embed_model: "nvidia/nv-embedqa-e5-v5"             # asymmetric QA retrieval model
+  embed_dim: 1024                                    # must match the vector column width
+  batch_size: 64                                     # texts per embeddings request
+
+# --- VAST data-plane credentials (static key for the VastDB/S3 data-plane) ---
+vast:
+  access_key: "CHANGE_ME_VAST_ACCESS_KEY"
+  secret_key: "CHANGE_ME_VAST_SECRET_KEY"
+
+vdb:
+  endpoint: "https://CHANGE_ME_VASTDB_HOST"
+  bucket: "earnings-calls"
+  schema: "earnings21"
+  table: "call_chunks"
+  ssl_verify: false
+  # ADBC driver .so path (used only by search.py for vector queries). Fetch it with:
+  adbc_driver_path: "/opt/adbc-driver/libadbc_driver_vastdb.so"
+
+# --- S3 (VAST) : used only by search/ingest if we need raw text later ---
+s3:
+  endpoint: "https://CHANGE_ME_S3_HOST"
+  ssl_verify: false
+
+# --- Ingest defaults ---
+ingest:
+  department: "sales"
+  data_dir: "data/calls"

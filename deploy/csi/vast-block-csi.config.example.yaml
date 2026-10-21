@@ -1,0 +1,22 @@
+
+# --- CSI driver (Helm) -------------------------------------------------------
+csi:
+  namespace: vast-block-csi     # driver namespace (block CSI)
+  release: vastblock            # helm release name
+  chart_version: "2.6.5"
+
+vms:
+  endpoint: "REPLACE_ME"        # VMS mgmt IP/FQDN, no scheme
+  username: "REPLACE_ME"
+  password: "REPLACE_ME"
+  verify_ssl: false
+
+# --- StorageClass (NVMe/TCP block) — the agent-sandbox foundation ------------
+storageclass:
+  name: vastdata-block
+  vip_pool_name: "REPLACE_ME"   # data VIP pool for NVMe/TCP
+  vip_pool_fqdn: ""             # optional FQDN; use instead of vip_pool_name
+  subsystem: "REPLACE_ME"       # REQUIRED: existing VAST BLOCK view name (not the path)
+  tenant_name: "REPLACE_ME"
+  reclaim_policy: Delete        # Delete = clean teardown of ephemeral sandbox volumes
+  make_default: false           # true => mark this SC the cluster default (unset others!)

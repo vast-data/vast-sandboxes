@@ -1,0 +1,125 @@
+tls:
+  cert_file: ""
+  key_file: ""
+
+vast:
+  access_key: "CHANGE_ME_VAST_ACCESS_KEY"
+  secret_key: "CHANGE_ME_VAST_SECRET_KEY"
+
+vdb:
+  endpoint: "https://CHANGE_ME_VASTDB_HOST"
+  telemetry_bucket: vastclaw-db
+  telemetry_schema: telemetry
+  control_bucket: vastclaw-db
+  control_schema: vastclaw_control
+  ssl_verify: false
+
+s3:
+  endpoint: "https://CHANGE_ME_S3_HOST"
+  ssl_verify: false
+
+model:
+  enabled: true
+  base_url: "http://CHANGE_ME_NIM_HOST:9090/v1"
+  api_key: ""
+  allow_anonymous: true
+  model: "nvidia/llama-3.3-nemotron-super-49b-v1.5"
+  max_tokens: 4096
+  request_timeout_seconds: 300.0
+  max_retries: 5
+  retry_backoff_seconds: 2.0
+  embed_base_url: "http://CHANGE_ME_NIM_HOST:8012/v1"
+  embed_api_key: ""
+  embed_model: "nvidia/nv-embedqa-e5-v5"
+  embed_dim: 1024
+
+runtime:
+  mode: kubernetes
+  agent_image: registry.example.com/vast-claw/vc-backend:latest
+  frontend_image: registry.example.com/vast-claw/vc-frontend:latest
+  mcp_image: registry.example.com/vast-claw/vc-mcp-vast-tools:latest
+  require_plan_approval: true
+  run_timeout_seconds: 2400.0
+
+openclaw:
+  timeout_seconds: 900.0
+  max_attempts: 2
+
+sandbox:
+  storage_class: vastdata-block
+  clone_subagents_from_head: true
+  seed_head_before_fanout: true
+  checkpoint_before_fanout: true
+  checkpoint_on_subagent_complete: true
+  wake_on_continue: true
+  max_concurrent_snapshots: 2
+  snapshot_max_retries: 4
+  snapshot_retry_backoff_seconds: 5.0
+  snapshot_ready_timeout_seconds: 180.0
+
+# Sub-agent spawn: OpenShell gateway CreateSandbox only (no direct-CR fallback).
+agent_sandbox:
+  gateway_endpoint_template: "os-{department}.{ns}.svc.cluster.local:8080"
+  gateway_workspace: default
+  keep_alive_seconds: 900
+
+auth:
+  jwt_secret: "CHANGE_ME_LONG_RANDOM"
+  vms_host: "CHANGE_ME_VMS_HOST"
+  vms_port: 443
+  # VAST tenant deploy ensures. Must match the tenant the VMS login belongs to.
+  tenant_name: default
+  users:
+    CHANGE_ME_SALES_USER:
+      department: sales
+      # VMS login password. Deploy creates the manager when this is set.
+      password: "CHANGE_ME_PASSWORD"
+    CHANGE_ME_FINANCE_USER:
+      department: finance
+      password: "CHANGE_ME_PASSWORD"
+    CHANGE_ME_ADMIN_USER:
+      local: true
+      password: "CHANGE_ME_ADMIN_PASSWORD"
+      department: sales
+      is_admin: true
+
+platform:
+  vms_username: ""
+  vms_password: ""
+  # Existing S3_NATIVE view policy that new DATABASE buckets join.
+  view_policy: ""
+  # Existing VMS role joined by the sales and finance logins.
+  manager_role: ""
+  # Bucket owner. A new key is stored in vast-access.yaml.
+  s3_user: vastclaw
+  # Local group for s3_user.
+  s3_group: ""
+  # Empty uses vdb.telemetry_bucket / vdb.control_bucket.
+  database_bucket: ""
+  corpus_bucket: earnings-calls
+  corpus_schema: earnings21
+  corpus_table: call_chunks
+  corpus_load: true
+
+departments:
+  sales:
+    display_name: "Sales"
+    evidence_type: transcript
+    persona: >-
+      You are an earnings-call intelligence analyst. You read public company
+      earnings-call transcripts and, per company and sector, surface competitive
+      pressure, demand signals, product/roadmap themes, and buyer-relevant risks —
+      and the single most important next step a sales or account team should take.
+    synthesis:
+      findings_label: "Sales findings (attributed, grounded in the earnings-call corpus)"
+  finance:
+    display_name: "Finance"
+    evidence_type: transcript
+    persona: >-
+      You are a finance analyst embedded in the revenue organization. You read the same
+      public earnings-call transcripts through a deal-economics lens: guidance, margin,
+      pricing power, cost pressure, capital allocation, and revenue-recognition risk. Per
+      company and sector, you surface the financial risks and the single most important
+      commercial action to protect margin.
+    synthesis:
+      findings_label: "Finance findings (attributed, grounded in the earnings-call corpus)"

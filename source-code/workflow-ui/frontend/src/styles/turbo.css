@@ -1,0 +1,238 @@
+/* =====================================================================
+   Turbo DAG — VAST-tinted neon nodes/edges for the workflow graph.
+   Adapted from the React Flow "Turbo Flow" example, recoloured to the
+   brand cyan→green gradient and driven by run status.
+   ===================================================================== */
+
+@property --tn-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+/* ---- Canvas ---- */
+.graph.turbo {
+  background-color:
+  background-image: radial-gradient(circle at 22% 14%, rgba(115, 200, 253, 0.1), transparent 42%),
+    radial-gradient(circle at 82% 88%, rgba(61, 220, 151, 0.09), transparent 46%);
+}
+.graph.turbo .react-flow__attribution {
+  background: transparent;
+  color:
+}
+.graph.turbo .react-flow__controls {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.graph.turbo .react-flow__controls-button {
+  background:
+  border-bottom: 1px solid
+  color:
+}
+.graph.turbo .react-flow__controls-button:hover {
+  background:
+}
+.graph.turbo .react-flow__controls-button svg {
+  fill: currentColor;
+}
+
+/* ---- Shared SVG defs holder ---- */
+.turbo-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+/* ---- Node ---- */
+.turbo-node {
+  --g1:
+  --g2:
+  --tn-bg:
+  position: relative;
+  border-radius: 12px;
+  border: 1.6px solid transparent;
+  background:
+    linear-gradient(var(--tn-bg), var(--tn-bg)) padding-box,
+    conic-gradient(from var(--tn-angle), var(--g1), var(--g2), var(--g1)) border-box;
+  cursor: pointer;
+}
+.turbo-node.tn-ok {
+  --g1:
+  --g2:
+}
+.turbo-node.tn-running {
+  --g1:
+  --g2:
+  animation: tn-rotate 4s linear infinite;
+}
+.turbo-node.tn-error {
+  --g1:
+  --g2:
+}
+.turbo-node.tn-idle {
+  --g1:
+  --g2:
+}
+
+.turbo-glow {
+  position: absolute;
+  inset: -3px;
+  z-index: -1;
+  border-radius: 14px;
+  background: linear-gradient(120deg, var(--g1), var(--g2));
+  filter: blur(13px);
+  opacity: 0.32;
+}
+.tn-running .turbo-glow {
+  opacity: 0.55;
+  animation: tn-pulse 1.9s ease-in-out infinite;
+}
+.tn-selected .turbo-glow {
+  opacity: 0.6;
+}
+
+.turbo-body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 13px;
+  border-radius: 10.5px;
+  background: var(--tn-bg);
+  min-width: 186px;
+}
+.tn-selected .turbo-body {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--g1) 60%, transparent);
+}
+
+.turbo-icon {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--g1) 32%, #10203b),
+    color-mix(in srgb, var(--g2) 32%,
+  );
+  border: 1px solid color-mix(in srgb, var(--g1) 40%, transparent);
+}
+.turbo-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.turbo-title {
+  font-weight: 700;
+  font-size: 14px;
+  color:
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 168px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tn-role {
+  flex: none;
+  font-family: var(--font-code);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 1px 5px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+.tn-role.lead {
+  color:
+  background: rgba(255, 168, 46, 0.14);
+  border-color: rgba(255, 168, 46, 0.42);
+}
+.tn-role.openshell {
+  color:
+  background: rgba(61, 220, 151, 0.12);
+  border-color: rgba(61, 220, 151, 0.45);
+}
+.turbo-sub {
+  font-family: var(--font-code);
+  font-size: 12px;
+  color: var(--text-dim);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+/* ---- Status badge (top-right corner) ---- */
+.tn-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12.5px;
+  line-height: 1;
+  font-weight: 800;
+  border: 2px solid var(--tn-bg);
+  z-index: 2;
+}
+.tn-badge.ok {
+  background:
+  color:
+}
+.tn-badge.err {
+  background:
+  color:
+}
+.tn-badge.idle {
+  background:
+}
+.tn-badge.spin {
+  background: conic-gradient(from 0deg, #73c8fd, #3ddc97, rgba(115, 200, 253, 0.15));
+  animation: tn-spin 1s linear infinite;
+}
+
+/* ---- Handles ---- */
+.turbo-handle.react-flow__handle {
+  width: 7px;
+  height: 7px;
+  background:
+  border: 1.5px solid
+}
+
+/* ---- Edges: soft glow under the gradient stroke ---- */
+.graph.turbo .react-flow__edge-path {
+  filter: drop-shadow(0 0 3px rgba(61, 220, 151, 0.35));
+}
+
+@keyframes tn-rotate {
+  to {
+    --tn-angle: 360deg;
+  }
+}
+@keyframes tn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes tn-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}

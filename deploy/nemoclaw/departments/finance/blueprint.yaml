@@ -1,0 +1,36 @@
+
+version: 1
+
+metadata:
+  name: vast-claw-finance-intel
+  agent: openclaw
+  description: >
+    Specialist finance / deal-economics sub-agent. Grounds findings in the shared
+    Earnings-21 corpus via the finance department MCP and returns the structured
+    JSON contract the vast-claw UI expects. Runs governed by OpenShell policy.
+
+sandbox:
+  image: __VC_BACKEND_IMAGE__
+  command: ["python", "-m", "vastclaw_ui.agent_runner"]
+  workspace: /workspace
+  memory: /workspace/.openclaw/memory
+
+inference:
+  provider: nvidia
+  endpoint: https://integrate.api.nvidia.com/v1
+  model: nvidia/meta/llama-3.1-8b-instruct
+  embed_model: nvidia/nv-embedqa-e5-v5
+  route: inference.local
+  timeout_seconds: 300
+
+policy: policies/sandbox-policy.yaml
+
+tools:
+  mcp:
+    vast-rag:
+      url: http://vastclaw-mcp-finance.vastclaw-finance.svc.cluster.local:8080/sse
+      transport: sse
+      allow:
+        - transcript_search
+        - similar_calls
+        - list_call_metadata

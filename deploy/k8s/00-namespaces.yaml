@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: vastclaw-sales          # vastclaw-<department>
+  labels:
+    app.kubernetes.io/part-of: vastclaw
+    vastclaw.vastdata.com/department: sales
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: vastclaw-finance        # department: finance
+  labels:
+    app.kubernetes.io/part-of: vastclaw
+    vastclaw.vastdata.com/department: finance
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: vastclaw-observability
+  labels:
+    app.kubernetes.io/part-of: vastclaw
