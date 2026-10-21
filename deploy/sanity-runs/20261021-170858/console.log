@@ -1,0 +1,170 @@
+🧪 vast-claw sanity — https://vastclaw.solutions.vastdata.com
+   timeout=900s  qa=180s  poll=5s  mode=parallel
+   workflows_count_per_dep=1  →  3 workflow(s) total
+   results → /Users/simon.golan/mycodebase/vast-sandboxes/deploy/sanity-runs/20261021-170858
+   (prior runs kept under /Users/simon.golan/mycodebase/vast-sandboxes/deploy/sanity-runs/)
+
+▸ health check
+✓ GET / (frontend reachable at https://vastclaw.solutions.vastdata.com)
+▸ OpenShell + NemoClaw preflight
+✓ CRD sandboxes.agents.x-k8s.io present
+✓ vastclaw-sales: NemoClaw blueprint ConfigMap (policy present)
+✓ vastclaw-sales: OpenShell gateway Service os-sales
+✓ vastclaw-sales: OpenShell gateway Ready (1/1)
+✓ vastclaw-finance: NemoClaw blueprint ConfigMap (policy present)
+✓ vastclaw-finance: OpenShell gateway Service os-finance
+✓ vastclaw-finance: OpenShell gateway Ready (1/1)
+✓ backend has openshell SDK (vastclaw-workflow-ui-backend-6968658bf-s26dx)
+✓ backend agent_sandbox gateway config readable
+
+
+▸ starting 3 workflow(s) in parallel (1 per dept + dedicated sales delete target)
+
+━━ sales/GE industrial outlook — demand & competition ━━
+▸ [sales/GE industrial outlook — demand & competition] login as sales-agent-1
+
+━━ finance/GE earnings — guidance & margin risk ━━
+▸ [finance/GE earnings — guidance & margin risk] login as finance-agent-1
+
+━━ sales/American Express — spending & credit signals ━━
+▸ [sales/American Express — spending & credit signals] login as sales-agent-1
+✓ [sales/American Express — spending & credit signals] identity: sales-agent-1 → department=sales
+▸ [sales/American Express — spending & credit signals] create workflow: American Express — spending & credit signals
+✓ [finance/GE earnings — guidance & margin risk] identity: finance-agent-1 → department=finance
+▸ [finance/GE earnings — guidance & margin risk] create workflow: GE earnings — guidance & margin risk
+✓ [sales/GE industrial outlook — demand & competition] identity: sales-agent-1 → department=sales
+▸ [sales/GE industrial outlook — demand & competition] create workflow: GE industrial outlook — demand & competition
+✓ [sales/American Express — spending & credit signals] created workflow wf-5498907904ae
+✓ [sales/GE industrial outlook — demand & competition] created workflow wf-269406545aee
+✓ [finance/GE earnings — guidance & margin risk] created workflow wf-2a81f0cee5f8
+  [  0s] sales/American Express — spending & credit signals status=running
+  [  0s] sales/GE industrial outlook — demand & competition status=running
+  [  0s] finance/GE earnings — guidance & margin risk status=running
+  [  6s] sales/American Express — spending & credit signals status=running
+  [  6s] finance/GE earnings — guidance & margin risk status=running
+  [  7s] sales/GE industrial outlook — demand & competition status=running
+  [ 12s] sales/American Express — spending & credit signals status=running
+  [ 13s] sales/GE industrial outlook — demand & competition status=running
+  [ 12s] finance/GE earnings — guidance & margin risk status=running
+  [ 18s] sales/American Express — spending & credit signals status=running
+  [ 18s] finance/GE earnings — guidance & margin risk status=running
+  [ 19s] sales/GE industrial outlook — demand & competition status=running
+  [ 25s] sales/American Express — spending & credit signals status=running
+  [ 25s] finance/GE earnings — guidance & margin risk status=running
+  [ 26s] sales/GE industrial outlook — demand & competition status=running
+  [ 31s] sales/American Express — spending & credit signals status=running
+  [ 31s] finance/GE earnings — guidance & margin risk status=running
+  [ 32s] sales/GE industrial outlook — demand & competition status=running
+  [ 37s] sales/American Express — spending & credit signals status=running
+  [ 37s] finance/GE earnings — guidance & margin risk status=running
+  [ 38s] sales/GE industrial outlook — demand & competition status=running
+  [ 43s] sales/American Express — spending & credit signals status=running
+  [ 44s] finance/GE earnings — guidance & margin risk status=running
+  [ 45s] sales/GE industrial outlook — demand & competition status=running
+  [ 50s] sales/American Express — spending & credit signals status=running
+  [ 50s] finance/GE earnings — guidance & margin risk status=running
+  [ 51s] sales/GE industrial outlook — demand & competition status=running
+  [ 56s] sales/American Express — spending & credit signals status=running
+  [ 56s] finance/GE earnings — guidance & margin risk status=running
+  [ 57s] sales/GE industrial outlook — demand & competition status=running
+  [ 62s] sales/American Express — spending & credit signals status=running
+  [ 62s] finance/GE earnings — guidance & margin risk status=running
+  [ 63s] sales/GE industrial outlook — demand & competition status=running
+  [ 69s] sales/American Express — spending & credit signals status=running
+  [ 69s] finance/GE earnings — guidance & margin risk status=running
+  [ 70s] sales/GE industrial outlook — demand & competition status=running
+  [ 75s] sales/American Express — spending & credit signals status=running
+  [ 75s] finance/GE earnings — guidance & margin risk status=running
+  [ 76s] sales/GE industrial outlook — demand & competition status=running
+  [ 81s] sales/American Express — spending & credit signals status=running
+  [ 81s] finance/GE earnings — guidance & margin risk status=running
+  [ 82s] sales/GE industrial outlook — demand & competition status=running
+  [ 87s] sales/American Express — spending & credit signals status=running
+  [ 88s] finance/GE earnings — guidance & margin risk status=running
+  [ 89s] sales/GE industrial outlook — demand & competition status=running
+  [ 94s] sales/American Express — spending & credit signals status=running
+  [ 94s] finance/GE earnings — guidance & margin risk status=running
+  [ 95s] sales/GE industrial outlook — demand & competition status=running
+  [100s] sales/American Express — spending & credit signals status=running
+  [101s] sales/GE industrial outlook — demand & competition status=running
+  [100s] finance/GE earnings — guidance & margin risk status=running
+  [106s] sales/American Express — spending & credit signals status=running
+  [107s] finance/GE earnings — guidance & margin risk status=running
+  [108s] sales/GE industrial outlook — demand & competition status=running
+  [113s] sales/American Express — spending & credit signals status=running
+  [113s] finance/GE earnings — guidance & margin risk status=running
+  [114s] sales/GE industrial outlook — demand & competition status=running
+  [119s] sales/American Express — spending & credit signals status=running
+  [121s] sales/GE industrial outlook — demand & competition status=running
+  [120s] finance/GE earnings — guidance & margin risk status=running
+  [125s] sales/American Express — spending & credit signals status=running
+  [126s] finance/GE earnings — guidance & margin risk status=running
+  [127s] sales/GE industrial outlook — demand & competition status=running
+  [132s] sales/American Express — spending & credit signals status=running
+  [132s] finance/GE earnings — guidance & margin risk status=running
+  [133s] sales/GE industrial outlook — demand & competition status=running
+  [138s] sales/American Express — spending & credit signals status=running
+  [139s] finance/GE earnings — guidance & margin risk status=running
+  [140s] sales/GE industrial outlook — demand & competition status=running
+  [144s] sales/American Express — spending & credit signals status=running
+  [146s] sales/GE industrial outlook — demand & competition status=running
+  [145s] finance/GE earnings — guidance & margin risk status=running
+  [150s] sales/American Express — spending & credit signals status=running
+  [153s] sales/GE industrial outlook — demand & competition status=running
+  [152s] finance/GE earnings — guidance & margin risk status=running
+  [157s] sales/American Express — spending & credit signals status=running
+  [158s] finance/GE earnings — guidance & margin risk status=running
+  [159s] sales/GE industrial outlook — demand & competition status=running
+  [163s] sales/American Express — spending & credit signals status=running
+  [164s] finance/GE earnings — guidance & margin risk status=running
+  [165s] sales/GE industrial outlook — demand & competition status=running
+  [169s] sales/American Express — spending & credit signals status=running
+  [172s] sales/GE industrial outlook — demand & competition status=running
+  [171s] finance/GE earnings — guidance & margin risk status=running
+  [176s] sales/American Express — spending & credit signals status=running
+  [179s] sales/GE industrial outlook — demand & competition status=running
+  [178s] finance/GE earnings — guidance & margin risk status=running
+  [182s] sales/American Express — spending & credit signals status=running
+  [184s] finance/GE earnings — guidance & margin risk status=running
+  [185s] sales/GE industrial outlook — demand & competition status=running
+  [188s] sales/American Express — spending & credit signals status=running
+  [191s] sales/GE industrial outlook — demand & competition status=running
+  [190s] finance/GE earnings — guidance & margin risk status=running
+  [195s] sales/American Express — spending & credit signals status=running
+  [198s] sales/GE industrial outlook — demand & competition status=running
+  [197s] finance/GE earnings — guidance & margin risk status=running
+  [201s] sales/American Express — spending & credit signals status=running
+  [204s] sales/GE industrial outlook — demand & competition status=running
+  [203s] finance/GE earnings — guidance & margin risk status=running
+  [207s] sales/American Express — spending & credit signals status=running
+  [210s] finance/GE earnings — guidance & margin risk status=running
+  [211s] sales/GE industrial outlook — demand & competition status=running
+  [213s] sales/American Express — spending & credit signals status=running
+  [216s] finance/GE earnings — guidance & margin risk status=running
+  [217s] sales/GE industrial outlook — demand & competition status=running
+  [220s] sales/American Express — spending & credit signals status=running
+  [223s] sales/GE industrial outlook — demand & competition status=running
+  [222s] finance/GE earnings — guidance & margin risk status=running
+  [226s] sales/American Express — spending & credit signals status=running
+  [229s] finance/GE earnings — guidance & margin risk status=running
+  [230s] sales/GE industrial outlook — demand & competition status=running
+  [232s] sales/American Express — spending & credit signals status=running
+  [235s] finance/GE earnings — guidance & margin risk status=running
+  [236s] sales/GE industrial outlook — demand & competition status=running
+  [239s] sales/American Express — spending & credit signals status=running
+  [242s] finance/GE earnings — guidance & margin risk status=running
+  [243s] sales/GE industrial outlook — demand & competition status=running
+  [245s] sales/American Express — spending & credit signals status=running
+  [248s] finance/GE earnings — guidance & margin risk status=running
+  [249s] sales/GE industrial outlook — demand & competition status=running
+  [252s] sales/American Express — spending & credit signals status=running
+  [254s] finance/GE earnings — guidance & margin risk status=running
+  [255s] sales/GE industrial outlook — demand & competition status=running
+  [259s] sales/American Express — spending & credit signals status=running
+  [261s] finance/GE earnings — guidance & margin risk status=running
+  [262s] sales/GE industrial outlook — demand & competition status=running
+  [266s] sales/American Express — spending & credit signals status=running
+  [267s] finance/GE earnings — guidance & margin risk status=running
+  [268s] sales/GE industrial outlook — demand & competition status=running
+  [273s] sales/American Express — spending & credit signals status=running
+  [275s] sales/GE industrial outlook — demand & competition status=run

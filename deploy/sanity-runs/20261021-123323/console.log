@@ -1,0 +1,351 @@
+🧪 vast-claw sanity — https://vastclaw.solutions.vastdata.com
+   timeout=900s  qa=180s  poll=5s  mode=parallel
+   workflows_count_per_dep=1  →  3 workflow(s) total
+   results → /Users/simon.golan/mycodebase/vast-sandboxes/deploy/sanity-runs/20261021-123323
+   (prior runs kept under /Users/simon.golan/mycodebase/vast-sandboxes/deploy/sanity-runs/)
+
+▸ health check
+✓ GET / (frontend reachable at https://vastclaw.solutions.vastdata.com)
+▸ OpenShell + NemoClaw preflight
+✓ CRD sandboxes.agents.x-k8s.io present
+✓ vastclaw-sales: NemoClaw blueprint ConfigMap (policy present)
+✓ vastclaw-sales: OpenShell gateway Service os-sales
+✓ vastclaw-sales: OpenShell gateway Ready (1/1)
+✓ vastclaw-finance: NemoClaw blueprint ConfigMap (policy present)
+✓ vastclaw-finance: OpenShell gateway Service os-finance
+✓ vastclaw-finance: OpenShell gateway Ready (1/1)
+✓ backend has openshell SDK (vastclaw-workflow-ui-backend-7b6cfdbc88-fhv9p)
+✓ backend agent_sandbox gateway config readable
+
+
+▸ starting 3 workflow(s) in parallel (1 per dept + dedicated sales delete target)
+
+━━ sales/GE industrial outlook — demand & competition ━━
+▸ [sales/GE industrial outlook — demand & competition] login as sales-agent-1
+
+━━ finance/GE earnings — guidance & margin risk ━━
+▸ [finance/GE earnings — guidance & margin risk] login as finance-agent-1
+
+━━ sales/American Express — spending & credit signals ━━
+▸ [sales/American Express — spending & credit signals] login as sales-agent-1
+✓ [sales/American Express — spending & credit signals] identity: sales-agent-1 → department=sales
+▸ [sales/American Express — spending & credit signals] create workflow: American Express — spending & credit signals
+✓ [sales/GE industrial outlook — demand & competition] identity: sales-agent-1 → department=sales
+▸ [sales/GE industrial outlook — demand & competition] create workflow: GE industrial outlook — demand & competition
+✓ [finance/GE earnings — guidance & margin risk] identity: finance-agent-1 → department=finance
+▸ [finance/GE earnings — guidance & margin risk] create workflow: GE earnings — guidance & margin risk
+✓ [sales/American Express — spending & credit signals] created workflow wf-af3a62bd2c10
+✓ [sales/GE industrial outlook — demand & competition] created workflow wf-c018b21a33a2
+✓ [finance/GE earnings — guidance & margin risk] created workflow wf-7af4965e8d09
+  [  0s] sales/GE industrial outlook — demand & competition status=running
+  [  0s] sales/American Express — spending & credit signals status=running
+  [  0s] finance/GE earnings — guidance & margin risk status=running
+  [  6s] sales/GE industrial outlook — demand & competition status=running
+  [  7s] sales/American Express — spending & credit signals status=running
+  [  6s] finance/GE earnings — guidance & margin risk status=running
+  [ 13s] sales/GE industrial outlook — demand & competition status=running
+  [ 13s] sales/American Express — spending & credit signals status=running
+  [ 12s] finance/GE earnings — guidance & margin risk status=running
+  [ 19s] sales/GE industrial outlook — demand & competition status=running
+  [ 19s] sales/American Express — spending & credit signals status=running
+  [ 19s] finance/GE earnings — guidance & margin risk status=running
+  [ 25s] sales/American Express — spending & credit signals status=running
+  [ 25s] sales/GE industrial outlook — demand & competition status=running
+  [ 25s] finance/GE earnings — guidance & margin risk status=running
+  [ 32s] sales/GE industrial outlook — demand & competition status=running
+  [ 31s] finance/GE earnings — guidance & margin risk status=running
+  [ 32s] sales/American Express — spending & credit signals status=running
+  [ 38s] finance/GE earnings — guidance & margin risk status=running
+  [ 39s] sales/GE industrial outlook — demand & competition status=running
+  [ 39s] sales/American Express — spending & credit signals status=running
+  [ 45s] sales/American Express — spending & credit signals status=running
+  [ 44s] finance/GE earnings — guidance & margin risk status=running
+  [ 45s] sales/GE industrial outlook — demand & competition status=running
+  [ 51s] finance/GE earnings — guidance & margin risk status=running
+  [ 52s] sales/American Express — spending & credit signals status=running
+  [ 52s] sales/GE industrial outlook — demand & competition status=running
+  [ 57s] finance/GE earnings — guidance & margin risk status=running
+  [ 58s] sales/GE industrial outlook — demand & competition status=running
+  [ 58s] sales/American Express — spending & credit signals status=running
+  [ 63s] finance/GE earnings — guidance & margin risk status=running
+  [ 65s] sales/American Express — spending & credit signals status=running
+  [ 65s] sales/GE industrial outlook — demand & competition status=running
+  [ 70s] finance/GE earnings — guidance & margin risk status=running
+  [ 71s] sales/American Express — spending & credit signals status=running
+  [ 71s] sales/GE industrial outlook — demand & competition status=running
+  [ 78s] sales/American Express — spending & credit signals status=running
+  [ 78s] sales/GE industrial outlook — demand & competition status=running
+  [ 77s] finance/GE earnings — guidance & margin risk status=running
+  [ 84s] sales/American Express — spending & credit signals status=running
+  [ 84s] sales/GE industrial outlook — demand & competition status=running
+  [ 83s] finance/GE earnings — guidance & margin risk status=running
+  [ 91s] sales/GE industrial outlook — demand & competition status=running
+  [ 90s] finance/GE earnings — guidance & margin risk status=running
+  [ 91s] sales/American Express — spending & credit signals status=running
+  [ 97s] sales/GE industrial outlook — demand & competition status=running
+  [ 97s] sales/American Express — spending & credit signals status=running
+  [ 96s] finance/GE earnings — guidance & margin risk status=running
+  [104s] sales/GE industrial outlook — demand & competition status=running
+  [103s] finance/GE earnings — guidance & margin risk status=running
+  [104s] sales/American Express — spending & credit signals status=running
+  [110s] sales/GE industrial outlook — demand & competition status=running
+  [110s] sales/American Express — spending & credit signals status=running
+  [109s] finance/GE earnings — guidance & margin risk status=running
+  [117s] sales/GE industrial outlook — demand & competition status=running
+  [117s] sales/American Express — spending & credit signals status=running
+  [116s] finance/GE earnings — guidance & margin risk status=running
+  [123s] sales/American Express — spending & credit signals status=running
+  [123s] sales/GE industrial outlook — demand & competition status=running
+  [122s] finance/GE earnings — guidance & margin risk status=running
+  [130s] sales/American Express — spending & credit signals status=running
+  [129s] finance/GE earnings — guidance & margin risk status=running
+  [130s] sales/GE industrial outlook — demand & competition status=running
+  [136s] sales/GE industrial outlook — demand & competition status=running
+  [136s] sales/American Express — spending & credit signals status=running
+  [135s] finance/GE earnings — guidance & margin risk status=running
+  [142s] finance/GE earnings — guidance & margin risk status=running
+  [143s] sales/American Express — spending & credit signals status=running
+  [143s] sales/GE industrial outlook — demand & competition status=running
+  [149s] sales/American Express — spending & credit signals status=running
+  [148s] finance/GE earnings — guidance & margin risk status=running
+  [150s] sales/GE industrial outlook — demand & competition status=running
+  [156s] sales/American Express — spending & credit signals status=running
+  [155s] finance/GE earnings — guidance & margin risk status=running
+  [157s] sales/GE industrial outlook — demand & competition status=running
+  [162s] sales/American Express — spending & credit signals status=running
+  [161s] finance/GE earnings — guidance & margin risk status=running
+  [165s] sales/GE industrial outlook — demand & competition status=running
+  [168s] finance/GE earnings — guidance & margin risk status=running
+  [169s] sales/American Express — spending & credit signals status=running
+  [172s] sales/GE industrial outlook — demand & competition status=running
+  [174s] finance/GE earnings — guidance & margin risk status=running
+  [175s] sales/American Express — spending & credit signals status=running
+  [179s] sales/GE industrial outlook — demand & competition status=running
+  [180s] finance/GE earnings — guidance & margin risk status=running
+  [182s] sales/American Express — spending & credit signals status=running
+  [186s] sales/GE industrial outlook — demand & competition status=running
+  [188s] sales/American Express — spending & credit signals status=running
+  [187s] finance/GE earnings — guidance & margin risk status=running
+  [194s] sales/American Express — spending & credit signals status=running
+  [193s] finance/GE earnings — guidance & margin risk status=running
+  [194s] sales/GE industrial outlook — demand & competition status=running
+  [200s] finance/GE earnings — guidance & margin risk status=running
+  [201s] sales/American Express — spending & credit signals status=running
+  [202s] sales/GE industrial outlook — demand & competition status=running
+  [207s] sales/American Express — spending & credit signals status=running
+  [206s] finance/GE earnings — guidance & margin risk status=running
+  [209s] sales/GE industrial outlook — demand & competition status=running
+  [214s] sales/American Express — spending & credit signals status=running
+  [214s] finance/GE earnings — guidance & margin risk status=running
+  [217s] sales/GE industrial outlook — demand & competition status=running
+  [221s] sales/American Express — spending & credit signals status=running
+  [221s] finance/GE earnings — guidance & margin risk status=running
+  [224s] sales/GE industrial outlook — demand & competition status=running
+  [227s] sales/American Express — spending & credit signals status=running
+  [227s] finance/GE earnings — guidance & margin risk status=running
+  [231s] sales/GE industrial outlook — demand & competition status=running
+  [233s] sales/American Express — spending & credit signals status=running
+  [234s] finance/GE earnings — guidance & margin risk status=running
+  [240s] sales/American Express — spending & credit signals status=running
+  [239s] sales/GE industrial outlook — demand & competition status=running
+  [241s] finance/GE earnings — guidance & margin risk status=running
+  [246s] sales/American Express — spending & credit signals status=running
+  [246s] sales/GE industrial outlook — demand & competition status=running
+  [248s] finance/GE earnings — guidance & margin risk status=running
+  [252s] sales/American Express — spending & credit signals status=running
+  [254s] sales/GE industrial outlook — demand & competition status=running
+  [255s] finance/GE earnings — guidance & margin risk status=running
+  [259s] sales/American Express — spending & credit signals status=running
+  [262s] sales/GE industrial outlook — demand & competition status=running
+  [261s] finance/GE earnings — guidance & margin risk status=running
+  [265s] sales/American Express — spending & credit signals status=running
+  [268s] finance/GE earnings — guidance & margin risk status=running
+  [269s] sales/GE industrial outlook — demand & competition status=running
+  [272s] sales/American Express — spending & credit signals status=running
+  [276s] finance/GE earnings — guidance & margin risk status=running
+  [278s] sales/American Express — spending & credit signals status=running
+  [277s] sales/GE industrial outlook — demand & competition status=running
+  [285s] sales/American Express — spending & credit signals status=running
+  [284s] finance/GE earnings — guidance & margin risk status=running
+  [286s] sales/GE industrial outlook — demand & competition status=running
+  [293s] sales/American Express — spending & credit signals status=running
+  [293s] finance/GE earnings — guidance & margin risk status=running
+  [296s] sales/GE industrial outlook — demand & competition status=running
+  [300s] sales/American Express — spending & credit signals status=running
+  [300s] finance/GE earnings — guidance & margin risk status=running
+  [305s] sales/GE industrial outlook — demand & competition status=running
+  [308s] sales/American Express — spending & credit signals status=running
+  [312s] finance/GE earnings — guidance & margin risk status=running
+  [314s] sales/GE industrial outlook — demand & competition status=running
+  [315s] sales/American Express — spending & credit signals status=running
+  [319s] finance/GE earnings — guidance & margin risk status=running
+  [322s] sales/American Express — spending & credit signals status=completed
+✓ [sales/American Express — spending & credit signals] sales/American Express — spending & credit signals: summary present (1898 chars, 6 sub-agent node(s))
+✓ [sales/American Express — spending & credit signals] sales/American Express — spending & credit signals: corpus-grounded (5/6 expected themes: express spending credit competitive demand sales)
+⚠ [sales/American Express — spending & credit signals] sales/American Express — spending & credit signals: 2 agent node(s) degraded/error
+⚠ [sales/American Express — spending & credit signals] sales/American Express — spending & credit signals: incomplete coverage — 2/3 workstream(s), missing: ["american-express-credit-risk"]
+  [322s] sales/GE industrial outlook — demand & competition status=running
+✓ [sales/American Express — spending & credit signals] sales/American Express — spending & credit signals: reads sales-oriented (persona keywords)
+✓ [sales/American Express — spending & credit signals] sales/American Express — spending & credit signals: VolumeSnapshot checkpoint (3 snapshot(s))
+✓ [sales/American Express — spending & credit signals] sales/American Express — spending & credit signals: clone-on-spawn (3 sub-agent PVC(s) with clone source)
+  [328s] finance/GE earnings — guidance & margin risk status=running
+  [330s] sales/GE industrial outlook — demand & competition status=running
+  [335s] finance/GE earnings — guidance & margin risk status=running
+  [338s] sales/GE industrial outlook — demand & competition status=running
+  [342s] finance/GE earnings — guidance & margin risk status=running
+  [347s] sales/GE industrial outlook — demand & competition status=running
+  [350s] finance/GE earnings — guidance & margin risk status=completed
+✓ [finance/GE earnings — guidance & margin risk] finance/GE earnings — guidance & margin risk: summary present (1444 chars, 12 sub-agent node(s))
+✓ [finance/GE earnings — guidance & margin risk] finance/GE earnings — guidance & margin risk: corpus-grounded (6/6 expected themes: electric guidance margin capital revenue commercial)
+✓ [finance/GE earnings — guidance & margin risk] finance/GE earnings — guidance & margin risk: all agent nodes healthy
+✓ [finance/GE earnings — guidance & margin risk] finance/GE earnings — guidance & margin risk: reads finance-oriented (persona keywords)
+✓ [finance/GE earnings — guidance & margin risk] finance/GE earnings — guidance & margin risk: VolumeSnapshot checkpoint (5 snapshot(s))
+✓ [finance/GE earnings — guidance & margin risk] finance/GE earnings — guidance & margin risk: clone-on-spawn (4 sub-agent PVC(s) with clone source)
+  [355s] sales/GE industrial outlook — demand & competition status=running
+  [362s] sales/GE industrial outlook — demand & competition status=running
+  [370s] sales/GE industrial outlook — demand & competition status=running
+  [378s] sales/GE industrial outlook — demand & competition status=running
+  [386s] sales/GE industrial outlook — demand & competition status=running
+  [393s] sales/GE industrial outlook — demand & competition status=running
+  [401s] sales/GE industrial outlook — demand & competition status=running
+  [409s] sales/GE industrial outlook — demand & competition status=running
+  [417s] sales/GE industrial outlook — demand & competition status=running
+  [424s] sales/GE industrial outlook — demand & competition status=running
+  [434s] sales/GE industrial outlook — demand & competition status=running
+  [442s] sales/GE industrial outlook — demand & competition status=completed
+✓ [sales/GE industrial outlook — demand & competition] sales/GE industrial outlook — demand & competition: summary present (2476 chars, 12 sub-agent node(s))
+✓ [sales/GE industrial outlook — demand & competition] sales/GE industrial outlook — demand & competition: corpus-grounded (6/6 expected themes: electric industrial aviation competitive outlook next step)
+✓ [sales/GE industrial outlook — demand & competition] sales/GE industrial outlook — demand & competition: all agent nodes healthy
+✓ [sales/GE industrial outlook — demand & competition] sales/GE industrial outlook — demand & competition: reads sales-oriented (persona keywords)
+✓ [sales/GE industrial outlook — demand & competition] sales/GE industrial outlook — demand & competition: multi-line prompt spawned 12 sub-agent(s) (env-sanitize OK)
+✓ [sales/GE industrial outlook — demand & competition] sales/GE industrial outlook — demand & competition: VolumeSnapshot checkpoint (5 snapshot(s))
+✓ [sales/GE industrial outlook — demand & competition] sales/GE industrial outlook — demand & competition: clone-on-spawn (4 sub-agent PVC(s) with clone source)
+
+━━ ACL cross-check ━━
+✓ finance cannot read sales workflow wf-c018b21a33a2 (HTTP 404)
+
+━━ Sleep / wake (continue remounts PVC) ━━
+
+━━ sleep-wake/sales (workflow wf-c018b21a33a2) ━━
+✓ sleep-wake/sales: 5 PVC(s) present; head=wf-c018b21a33a2
+▸ force-sleep: deleting sandboxes/pods with prefix wf-c018b21a33a2-* in vastclaw-sales (PVCs retained)
+✓ sleep-wake/sales: sandboxes gone; 5 PVC(s) retained
+✓ sleep-wake/sales: wake_hint.continue_will_wake=true
+▸ sleep-wake/sales: POST /turns (continue → wake + remount)
+  [  0s] sleep-wake/sales             status=running
+  [  6s] sleep-wake/sales             status=running
+  [ 12s] sleep-wake/sales             status=running
+  [ 18s] sleep-wake/sales             status=running
+  [ 25s] sleep-wake/sales             status=running
+  [ 31s] sleep-wake/sales             status=running
+  [ 37s] sleep-wake/sales             status=running
+  [ 44s] sleep-wake/sales             status=running
+  [ 50s] sleep-wake/sales             status=running
+  [ 56s] sleep-wake/sales             status=running
+  [ 63s] sleep-wake/sales             status=running
+  [ 69s] sleep-wake/sales             status=running
+  [ 76s] sleep-wake/sales             status=running
+  [ 82s] sleep-wake/sales             status=running
+  [ 88s] sleep-wake/sales             status=running
+  [ 95s] sleep-wake/sales             status=running
+  [101s] sleep-wake/sales             status=running
+  [108s] sleep-wake/sales             status=running
+  [114s] sleep-wake/sales             status=running
+  [120s] sleep-wake/sales             status=running
+  [127s] sleep-wake/sales             status=running
+  [133s] sleep-wake/sales             status=running
+  [139s] sleep-wake/sales             status=running
+  [146s] sleep-wake/sales             status=running
+  [152s] sleep-wake/sales             status=running
+  [158s] sleep-wake/sales             status=running
+  [165s] sleep-wake/sales             status=running
+  [171s] sleep-wake/sales             status=running
+  [177s] sleep-wake/sales             status=running
+  [184s] sleep-wake/sales             status=running
+  [191s] sleep-wake/sales             status=running
+  [198s] sleep-wake/sales             status=running
+  [205s] sleep-wake/sales             status=running
+  [212s] sleep-wake/sales             status=running
+  [219s] sleep-wake/sales             status=running
+  [226s] sleep-wake/sales             status=running
+  [233s] sleep-wake/sales             status=running
+  [240s] sleep-wake/sales             status=running
+  [248s] sleep-wake/sales             status=running
+  [255s] sleep-wake/sales             status=running
+  [262s] sleep-wake/sales             status=running
+  [269s] sleep-wake/sales             status=running
+  [276s] sleep-wake/sales             status=running
+  [284s] sleep-wake/sales             status=running
+  [291s] sleep-wake/sales             status=running
+  [298s] sleep-wake/sales             status=running
+  [305s] sleep-wake/sales             status=running
+  [312s] sleep-wake/sales             status=running
+  [320s] sleep-wake/sales             status=completed
+✓ sleep-wake/sales: head PVC remounted (wf-c018b21a33a2)
+✓ sleep-wake/sales: wake-on-continue recorded in graph
+
+━━ Quick Q&A ━━
+
+━━ qa/finance (workflow wf-7af4965e8d09) ━━
+▸ qa/finance: POST /turns mode=qa (follow-up about existing report — no new research)
+✓ qa/finance: workflow status stays 'completed' (no new research run, no approval)
+  [  0s] qa/finance                   qa=running
+  [  8s] qa/finance                   qa=running
+  [ 15s] qa/finance                   qa=running
+  [ 22s] qa/finance                   qa=ok
+✓ qa/finance: answer generated (status=ok)
+✓ qa/finance: non-empty grounded answer (671 chars)
+✓ qa/finance: last_run_id unchanged
+✓ qa/finance: no new sub-agents (12 unchanged)
+✓ qa/finance: qa_messages present in detail (1)
+
+━━ diagnostics: backend + agent logs ━━
+⚠ backend: 5× Traceback (most recent call last):
+⚠ backend: 5× status = StatusCode.UNAVAILABLE
+⚠ backend: 4× debug_error_string = "UNAVAILABLE:exec relay closed before the command reported an exit status"
+⚠ backend: 1× raise self._exception
+⚠ backend: 1× details = "supervisor relay failed: code: 'The service is currently unavailable', message: "supervisor session not connected""
+⚠ backend: 1× debug_error_string = "UNAVAILABLE:supervisor relay failed: code: 'The service is currently unavailable', message: "supervisor session not connected""
+⚠ backend: 1× <ts>,954 ERROR [vastclaw_ui.openshell_spawn] OpenShell exec failed label=wf-<id>
+⚠ backend: 1× <ts>,801 WARNING [vastclaw_ui.runtime] workflow wf-<id>: 1/3 sub-agent spawn(s) failed
+✓ vastclaw-sales: no unhealthy agent pods
+✓ vastclaw-finance: no unhealthy agent pods
+✓ VolumeSnapshots: 17/17 ready
+
+━━ retry outcomes ━━
+  RETRY OUTCOMES
+  ==============
+  
+  VolumeSnapshot / VMS (503 SnapshotResultCode.NOT_ALLOWED)
+    volumes that hit a rejection : 0
+    recovered on retry           : 0
+    lost after all retries       : 0
+  
+  NIM / NGC model calls
+    retry attempts logged        : 0
+    synthesis fell back to local : 0
+  
+  OpenShell spawn
+    CreateSandbox / SandboxError : 0
+    exec / config-write failures : 5
+  
+  Verdict
+    transient failures occurred and were absorbed (or were teardown exec noise).
+⚠ OpenShell exec/config-write noise in backend.log (exec=5) — usually teardown race
+
+━━ Delete workflow (owner ACL + cascade) ━━
+
+━━ delete/sales (workflow wf-af3a62bd2c10) ━━
+✓ delete/sales: non-owner (finance-agent-1) delete refused (HTTP 404)
+✓ delete/sales: workflow intact after refused delete
+✓ delete/sales: owner delete accepted (pvcs=4 snapshots=3 sandboxes=3)
+✓ delete/sales: detail now 404 (control rows gone)
+✓ delete/sales: absent from workflow list
+✓ delete/sales: all PVCs removed (had 4)
+✓ delete/sales: no Agent-Sandbox CRs remain for wf-af3a62bd2c10
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✓ sanity complete — 46 passed, 3 warning(s)
+  (warnings = weak grounding, degraded agents, or errors found in backend/agent logs)
+  results: /Users/simon.golan/mycodebase/vast-sandboxes/deploy/sanity-runs/20261021-123323  (also: deploy/sanity-runs/latest)
+  prior runs kept under: /Users/simon.golan/mycodebase/vast-sandboxes/deploy/sanity-runs/

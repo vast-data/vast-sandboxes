@@ -3,6 +3,8 @@
 
 from __future__ import annotations
 
+import contextlib
+import io
 import sys
 from pathlib import Path
 from typing import Any
@@ -89,29 +91,74 @@ def _missing_bucket(exc: BaseException) -> bool:
     return type(exc).__name__ == "MissingBucket" or "MissingBucket" in str(exc)
 
 
-def _drop_schema(session: Any, bucket: str, schema_name: str) -> None:
-    with session.transaction() as tx:
+class _BucketAbsent(Exception):
+    pass
+
+
+def _run_tx(session: Any, fn: Any) -> Any:
+    """Run one transaction. A missing bucket stays quiet; other failures are shown."""
+    captured = io.StringIO()
+    try:
+        with contextlib.redirect_stdout(captured), contextlib.redirect_stderr(captured):
+            with session.transaction() as tx:
+                return fn(tx)
+    except Exception as exc:
+        if _missing_bucket(exc):
+            raise _BucketAbsent from exc
+        text = captured.getvalue()
+        if text:
+            print(text, file=sys.stderr, end="")
+        raise
+
+
+def _drop_schema(session: Any, bucket: str, schema_name: str) -> bool:
+    """Drop one schema. Return False when the bucket is already gone."""
+
+    def _list(tx: Any) -> list[str] | None:
         schema = tx.bucket(bucket).schema(schema_name, fail_if_missing=False)
         if schema is None:
-            _ok(f"schema {bucket}/{schema_name} already absent")
-            return
-        names = list(schema.tablenames())
+            return None
+        return list(schema.tablenames())
+
+    try:
+        names = _run_tx(session, _list)
+    except _BucketAbsent:
+        return False
+    if names is None:
+        _ok(f"schema {bucket}/{schema_name} already absent")
+        return True
     for name in names:
-        with session.transaction() as tx:
+        def _drop_table(tx: Any, table_name: str = name) -> bool:
             schema = tx.bucket(bucket).schema(schema_name, fail_if_missing=False)
             if schema is None:
-                break
-            table = schema.table(name, fail_if_missing=False)
+                return False
+            table = schema.table(table_name, fail_if_missing=False)
             if table is None:
-                continue
+                return False
             table.drop()
-        _ok(f"dropped {bucket}/{schema_name}.{name}")
-    with session.transaction() as tx:
+            return True
+
+        try:
+            dropped = _run_tx(session, _drop_table)
+        except _BucketAbsent:
+            return False
+        if dropped:
+            _ok(f"dropped {bucket}/{schema_name}.{name}")
+
+    def _drop_schema_obj(tx: Any) -> bool:
         schema = tx.bucket(bucket).schema(schema_name, fail_if_missing=False)
         if schema is None:
-            return
+            return False
         schema.drop()
-    _ok(f"dropped schema {bucket}/{schema_name}")
+        return True
+
+    try:
+        dropped_schema = _run_tx(session, _drop_schema_obj)
+    except _BucketAbsent:
+        return False
+    if dropped_schema:
+        _ok(f"dropped schema {bucket}/{schema_name}")
+    return True
 
 
 def _control(name: str) -> pa.Schema:
@@ -282,11 +329,7 @@ def drop(spec: dict[str, Any], *, keep_corpus: bool = False) -> None:
             continue
         if bucket in missing:
             continue
-        try:
-            _drop_schema(session, bucket, schema_name)
-        except Exception as exc:
-            if not _missing_bucket(exc):
-                raise
+        if not _drop_schema(session, bucket, schema_name):
             missing.add(bucket)
             _ok(f"bucket {bucket} already absent")
     if keep_corpus:

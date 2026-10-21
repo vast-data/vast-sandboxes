@@ -2,6 +2,9 @@ tls:
   cert_file: ""
   key_file: ""
 
+ingress:
+  host: vastclaw.solutions.vastdata.com
+
 vast:
   access_key: "CHANGE_ME_VAST_ACCESS_KEY"
   secret_key: "CHANGE_ME_VAST_SECRET_KEY"

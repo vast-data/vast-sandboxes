@@ -245,7 +245,7 @@
   color: var(--text);
 }
 .log-time {
-  color:
+  color: #4d6690;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
@@ -301,7 +301,7 @@
   font-size: 13px;
   white-space: pre-wrap;
   word-break: break-word;
-  background:
+  background: #0a1428;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   padding: 10px;
@@ -419,7 +419,7 @@
 }
 
 .wake-chip {
-  color:
+  color: #48bb78;
   background: rgba(72, 187, 120, 0.12);
   border: 1px solid rgba(72, 187, 120, 0.35);
 }

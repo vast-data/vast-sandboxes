@@ -1,0 +1,22 @@
+vast-claw sanity — Wed Oct 21 12:48:12 IDT 2026
+base:     https://vastclaw.solutions.vastdata.com
+duration: 889s
+workflows_count_per_dep: 1  (3 total)
+
+passed:   46
+failed:   0
+warnings: 3
+
+workflows:
+  wf-af3a62bd2c10	sales-delete	sales/American Express — spending & credit signals
+  wf-c018b21a33a2	sales-a	sales/GE industrial outlook — demand & competition
+  wf-7af4965e8d09	finance-a	finance/GE earnings — guidance & margin risk
+
+artifacts:
+  console.log    full run output
+  backend.log    backend pod logs for the run window
+  agents/        per agent-pod logs
+  workflows/     final detail JSON per workflow
+  issues.txt     deduped error signatures per source
+  retries.txt    whether transient failures were absorbed by retries
+  k8s-state.txt  pods / pvcs / volumesnapshots / sandboxes at end of run

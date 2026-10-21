@@ -1,0 +1,24 @@
+🧪 vast-claw sanity — https://vastclaw.solutions.vastdata.com
+   timeout=900s  qa=180s  poll=5s  mode=parallel
+   workflows_count_per_dep=1  →  3 workflow(s) total
+   results → /Users/simon.golan/mycodebase/vast-sandboxes/deploy/sanity-runs/20261021-121201
+   (prior runs kept under /Users/simon.golan/mycodebase/vast-sandboxes/deploy/sanity-runs/)
+
+▸ health check
+✓ GET / (frontend reachable at https://vastclaw.solutions.vastdata.com)
+▸ OpenShell + NemoClaw preflight
+✓ CRD sandboxes.agents.x-k8s.io present
+✗ vastclaw-sales: vastclaw-nemoclaw-blueprint missing sandbox-policy.yaml — re-run ./deploy/nemoclaw/vast-claw-nemoclaw.sh
+✓ vastclaw-sales: OpenShell gateway Service os-sales
+✓ vastclaw-sales: OpenShell gateway Ready (1/1)
+✗ vastclaw-finance: vastclaw-nemoclaw-blueprint missing sandbox-policy.yaml — re-run ./deploy/nemoclaw/vast-claw-nemoclaw.sh
+✓ vastclaw-finance: OpenShell gateway Service os-finance
+✓ vastclaw-finance: OpenShell gateway Ready (1/1)
+✓ backend has openshell SDK (vastclaw-workflow-ui-backend-55c8c5f7df-hmg6b)
+✓ backend agent_sandbox gateway config readable
+
+OpenShell preflight failed — fix the items above before sanity can exercise the real spawn path.
+  ./deploy/openshell/agent-sandbox-controller.sh
+  ./deploy/nemoclaw/vast-claw-nemoclaw.sh
+  ./deploy/openshell/vast-claw-openshell.sh
+  rebuild vc-backend (openshell dep) + refresh config secret + rollout backend

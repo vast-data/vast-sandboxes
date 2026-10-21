@@ -1,0 +1,583 @@
+2026-10-21 09:32:25,957 INFO [vastdb.features] VAST version: (5, 5, 0, 1)
+2026-10-21 09:32:26,081 INFO [vastdb.features] VAST version: (5, 5, 0, 1)
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+INFO:     10.141.215.162:39204 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:45684 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:45690 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:52026 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:34376 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:34386 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:42502 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:50116 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:50122 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:46352 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:36806 - "POST /api/v1/login HTTP/1.1" 200 OK
+INFO:     10.42.1.115:36792 - "POST /api/v1/login HTTP/1.1" 200 OK
+INFO:     10.42.1.115:36810 - "GET /api/v1/me HTTP/1.1" 200 OK
+INFO:     10.42.1.115:36814 - "GET /api/v1/me HTTP/1.1" 200 OK
+INFO:     10.42.1.115:36786 - "POST /api/v1/login HTTP/1.1" 200 OK
+INFO:     10.42.1.115:36836 - "GET /api/v1/me HTTP/1.1" 200 OK
+2026-10-21 09:33:44,017 INFO [vastdb.features] VAST version: (5, 5, 0, 1)
+2026-10-21 09:33:44,018 INFO [vastdb.features] VAST version: (5, 5, 0, 1)
+INFO:     10.141.215.162:47426 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:36822 - "POST /api/v1/workflows HTTP/1.1" 201 Created
+INFO:     10.42.1.115:36820 - "POST /api/v1/workflows HTTP/1.1" 201 Created
+2026-10-21 09:33:44,494 INFO [vastdb.features] VAST version: (5, 5, 0, 1)
+2026-10-21 09:33:44,765 INFO [httpx] HTTP Request: GET http://vastclaw-mcp-sales.vastclaw-sales.svc.cluster.local:8080/sse "HTTP/1.1 200 OK"
+2026-10-21 09:33:44,774 INFO [httpx] HTTP Request: GET http://vastclaw-mcp-sales.vastclaw-sales.svc.cluster.local:8080/sse "HTTP/1.1 200 OK"
+2026-10-21 09:33:44,781 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-sales.vastclaw-sales.svc.cluster.local:8080/messages/?session_id=45d3c3e9a05a441bb1c410d1cb732899 "HTTP/1.1 202 Accepted"
+2026-10-21 09:33:44,787 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-sales.vastclaw-sales.svc.cluster.local:8080/messages/?session_id=45d3c3e9a05a441bb1c410d1cb732899 "HTTP/1.1 202 Accepted"
+2026-10-21 09:33:44,789 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-sales.vastclaw-sales.svc.cluster.local:8080/messages/?session_id=8dcf2accf943462791bbc5d6c3080d43 "HTTP/1.1 202 Accepted"
+2026-10-21 09:33:44,789 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-sales.vastclaw-sales.svc.cluster.local:8080/messages/?session_id=45d3c3e9a05a441bb1c410d1cb732899 "HTTP/1.1 202 Accepted"
+2026-10-21 09:33:44,876 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-sales.vastclaw-sales.svc.cluster.local:8080/messages/?session_id=8dcf2accf943462791bbc5d6c3080d43 "HTTP/1.1 202 Accepted"
+2026-10-21 09:33:44,886 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-sales.vastclaw-sales.svc.cluster.local:8080/messages/?session_id=8dcf2accf943462791bbc5d6c3080d43 "HTTP/1.1 202 Accepted"
+INFO:     10.42.1.115:36844 - "POST /api/v1/workflows HTTP/1.1" 201 Created
+2026-10-21 09:33:45,008 INFO [httpx] HTTP Request: GET http://vastclaw-mcp-finance.vastclaw-finance.svc.cluster.local:8080/sse "HTTP/1.1 200 OK"
+2026-10-21 09:33:45,016 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-finance.vastclaw-finance.svc.cluster.local:8080/messages/?session_id=9a666fd268be434c9e24b10f67dd7e21 "HTTP/1.1 202 Accepted"
+2026-10-21 09:33:45,018 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-finance.vastclaw-finance.svc.cluster.local:8080/messages/?session_id=9a666fd268be434c9e24b10f67dd7e21 "HTTP/1.1 202 Accepted"
+2026-10-21 09:33:45,019 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-finance.vastclaw-finance.svc.cluster.local:8080/messages/?session_id=9a666fd268be434c9e24b10f67dd7e21 "HTTP/1.1 202 Accepted"
+INFO:     10.42.1.115:36852 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:36856 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:36872 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:47432 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:42136 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:42150 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:42158 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:48754 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:46832 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:46816 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:46836 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:35804 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:46852 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:46864 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:46870 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:35810 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:53112 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:53108 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:53128 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:42500 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:53148 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:53140 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:53146 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:40546 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:37164 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:37186 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:37172 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:40550 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:44794 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:44792 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:44802 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:42312 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:44816 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:44804 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:44820 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:56450 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:56464 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:56440 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:57986 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:57998 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:47386 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:47384 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:47394 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:60948 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:47428 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:47400 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:47412 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:52248 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:52246 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:52250 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:53744 - "GET /healthz HTTP/1.1" 200 OK
+2026-10-21 09:35:06,676 INFO [vastclaw_ui.openshell_spawn] OpenShell CreateSandbox name=wf-c018b21a33a2-5be endpoint=os-sales.vastclaw-sales.svc.cluster.local:8080 image=dcache-var.vastdata.com:5000/dev/solutions/vc-backend:latest
+INFO:     10.141.215.162:53750 - "GET /healthz HTTP/1.1" 200 OK
+2026-10-21 09:35:07,698 INFO [vastclaw_ui.openshell_spawn] OpenShell CreateSandbox name=wf-c018b21a33a2-504 endpoint=os-sales.vastclaw-sales.svc.cluster.local:8080 image=dcache-var.vastdata.com:5000/dev/solutions/vc-backend:latest
+2026-10-21 09:35:08,260 INFO [vastclaw_ui.openshell_spawn] OpenShell CreateSandbox name=wf-af3a62bd2c10-fe1 endpoint=os-sales.vastclaw-sales.svc.cluster.local:8080 image=dcache-var.vastdata.com:5000/dev/solutions/vc-backend:latest
+INFO:     10.42.1.115:52298 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:52314 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:52312 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+2026-10-21 09:35:13,760 INFO [vastclaw_ui.openshell_spawn] OpenShell sandbox Ready name=wf-c018b21a33a2-504 id=03c6fb9f-4092-48df-97ca-23472c9746ec phase=2
+2026-10-21 09:35:13,879 INFO [vastclaw_ui.openshell_spawn] OpenShell exec start label=wf-c018b21a33a2-504 sandbox_id=03c6fb9f-4092-48df-97ca-23472c9746ec cmd=python -m vastclaw_ui.agent_runner
+2026-10-21 09:35:14,784 INFO [vastclaw_ui.openshell_spawn] OpenShell sandbox Ready name=wf-c018b21a33a2-5be id=3dc9eb6d-dd7d-4faf-ba76-d4c5e6d20c5a phase=2
+2026-10-21 09:35:15,227 INFO [vastclaw_ui.openshell_spawn] OpenShell exec start label=wf-c018b21a33a2-5be sandbox_id=3dc9eb6d-dd7d-4faf-ba76-d4c5e6d20c5a cmd=python -m vastclaw_ui.agent_runner
+2026-10-21 09:35:15,330 INFO [vastclaw_ui.openshell_spawn] OpenShell sandbox Ready name=wf-af3a62bd2c10-fe1 id=17a7b4cd-2c1a-40eb-99cd-80217222b793 phase=2
+2026-10-21 09:35:15,475 INFO [vastclaw_ui.openshell_spawn] OpenShell exec start label=wf-af3a62bd2c10-fe1 sandbox_id=17a7b4cd-2c1a-40eb-99cd-80217222b793 cmd=python -m vastclaw_ui.agent_runner
+INFO:     10.42.1.115:52328 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:52352 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:57952 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:52342 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:34684 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:34692 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:34704 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:42730 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:42746 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:42726 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:42742 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:42716 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:42744 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:42756 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:42762 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:59978 - "GET /healthz HTTP/1.1" 200 OK
+2026-10-21 09:35:41,133 INFO [vastclaw_ui.openshell_spawn] OpenShell CreateSandbox name=wf-7af4965e8d09-925 endpoint=os-finance.vastclaw-finance.svc.cluster.local:8080 image=dcache-var.vastdata.com:5000/dev/solutions/vc-backend:latest
+INFO:     10.42.1.115:51854 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:51864 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:51880 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:34912 - "GET /healthz HTTP/1.1" 200 OK
+2026-10-21 09:35:45,222 INFO [vastclaw_ui.openshell_spawn] OpenShell sandbox Ready name=wf-7af4965e8d09-925 id=84d9bf57-9291-446e-ba69-c447f177f69f phase=2
+2026-10-21 09:35:45,365 INFO [vastclaw_ui.openshell_spawn] OpenShell exec start label=wf-7af4965e8d09-925 sandbox_id=84d9bf57-9291-446e-ba69-c447f177f69f cmd=python -m vastclaw_ui.agent_runner
+INFO:     10.141.215.162:34916 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:51450 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:51442 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:51452 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:51474 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:51458 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:51466 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:45200 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:46586 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:46598 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:46572 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:36738 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:36748 - "GET /healthz HTTP/1.1" 200 OK
+2026-10-21 09:36:08,516 INFO [vastclaw_ui.openshell_spawn] OpenShell CreateSandbox name=wf-af3a62bd2c10-191 endpoint=os-sales.vastclaw-sales.svc.cluster.local:8080 image=dcache-var.vastdata.com:5000/dev/solutions/vc-backend:latest
+2026-10-21 09:36:08,546 INFO [vastclaw_ui.openshell_spawn] OpenShell CreateSandbox name=wf-af3a62bd2c10-42e endpoint=os-sales.vastclaw-sales.svc.cluster.local:8080 image=dcache-var.vastdata.com:5000/dev/solutions/vc-backend:latest
+INFO:     10.42.1.115:48640 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:48638 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:48630 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:48660 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:48644 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+2026-10-21 09:36:15,636 INFO [vastclaw_ui.openshell_spawn] OpenShell sandbox Ready name=wf-af3a62bd2c10-191 id=df7b5c81-0692-42de-869b-be4b346920f1 phase=2
+2026-10-21 09:36:15,780 INFO [vastclaw_ui.openshell_spawn] OpenShell exec start label=wf-af3a62bd2c10-191 sandbox_id=df7b5c81-0692-42de-869b-be4b346920f1 cmd=python -m vastclaw_ui.agent_runner
+INFO:     10.42.1.115:48664 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:57358 - "GET /healthz HTTP/1.1" 200 OK
+2026-10-21 09:36:18,431 INFO [vastclaw_ui.openshell_spawn] OpenShell CreateSandbox name=wf-7af4965e8d09-a42 endpoint=os-finance.vastclaw-finance.svc.cluster.local:8080 image=dcache-var.vastdata.com:5000/dev/solutions/vc-backend:latest
+2026-10-21 09:36:18,945 INFO [vastclaw_ui.openshell_spawn] OpenShell CreateSandbox name=wf-c018b21a33a2-dc1 endpoint=os-sales.vastclaw-sales.svc.cluster.local:8080 image=dcache-var.vastdata.com:5000/dev/solutions/vc-backend:latest
+2026-10-21 09:36:19,954 INFO [vastclaw_ui.openshell_spawn] OpenShell CreateSandbox name=wf-c018b21a33a2-0bf endpoint=os-sales.vastclaw-sales.svc.cluster.local:8080 image=dcache-var.vastdata.com:5000/dev/solutions/vc-backend:latest
+2026-10-21 09:36:20,367 INFO [vastclaw_ui.openshell_spawn] OpenShell CreateSandbox name=wf-7af4965e8d09-6c5 endpoint=os-finance.vastclaw-finance.svc.cluster.local:8080 image=dcache-var.vastdata.com:5000/dev/solutions/vc-backend:latest
+INFO:     10.42.1.115:56066 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:56062 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:56076 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:48358 - "GET /healthz HTTP/1.1" 200 OK
+2026-10-21 09:36:26,017 INFO [vastclaw_ui.openshell_spawn] OpenShell sandbox Ready name=wf-c018b21a33a2-0bf id=c0d61093-390a-4418-9f28-dca5db2c8470 phase=2
+2026-10-21 09:36:26,501 INFO [vastclaw_ui.openshell_spawn] OpenShell sandbox Ready name=wf-7af4965e8d09-6c5 id=1e655ead-8d10-469b-84c7-5b93ef1e66da phase=2
+2026-10-21 09:36:26,551 INFO [vastclaw_ui.openshell_spawn] OpenShell sandbox Ready name=wf-7af4965e8d09-a42 id=b950d54f-b131-4fea-9965-a1c7f9bf806e phase=2
+2026-10-21 09:36:26,605 INFO [vastclaw_ui.openshell_spawn] OpenShell exec start label=wf-7af4965e8d09-6c5 sandbox_id=1e655ead-8d10-469b-84c7-5b93ef1e66da cmd=python -m vastclaw_ui.agent_runner
+INFO:     10.141.215.162:48372 - "GET /healthz HTTP/1.1" 200 OK
+2026-10-21 09:36:26,747 INFO [vastclaw_ui.openshell_spawn] OpenShell exec start label=wf-7af4965e8d09-a42 sandbox_id=b950d54f-b131-4fea-9965-a1c7f9bf806e cmd=python -m vastclaw_ui.agent_runner
+2026-10-21 09:36:26,817 INFO [vastclaw_ui.openshell_spawn] OpenShell exec start label=wf-c018b21a33a2-0bf sandbox_id=c0d61093-390a-4418-9f28-dca5db2c8470 cmd=python -m vastclaw_ui.agent_runner
+2026-10-21 09:36:27,121 INFO [vastclaw_ui.openshell_spawn] OpenShell sandbox Ready name=wf-c018b21a33a2-dc1 id=d0611425-3cde-4985-b5a6-b697ae9eee41 phase=2
+2026-10-21 09:36:27,307 INFO [vastclaw_ui.openshell_spawn] OpenShell exec start label=wf-c018b21a33a2-dc1 sandbox_id=d0611425-3cde-4985-b5a6-b697ae9eee41 cmd=python -m vastclaw_ui.agent_runner
+INFO:     10.42.1.115:56090 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:56082 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+2026-10-21 09:36:29,316 INFO [vastclaw_ui.openshell_spawn] OpenShell CreateSandbox name=wf-7af4965e8d09-3f5 endpoint=os-finance.vastclaw-finance.svc.cluster.local:8080 image=dcache-var.vastdata.com:5000/dev/solutions/vc-backend:latest
+INFO:     10.42.1.115:55294 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+2026-10-21 09:36:31,681 INFO [vastclaw_ui.openshell_spawn] OpenShell sandbox Ready name=wf-af3a62bd2c10-42e id=efe1b144-f5ad-467f-824b-add66bf625c8 phase=2
+INFO:     10.42.1.115:55306 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:55320 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+2026-10-21 09:36:36,397 INFO [vastclaw_ui.openshell_spawn] OpenShell sandbox Ready name=wf-7af4965e8d09-3f5 id=15fdc383-ad9b-4442-af0a-0c34cafa51db phase=2
+2026-10-21 09:36:36,583 INFO [vastclaw_ui.openshell_spawn] OpenShell exec start label=wf-7af4965e8d09-3f5 sandbox_id=15fdc383-ad9b-4442-af0a-0c34cafa51db cmd=python -m vastclaw_ui.agent_runner
+INFO:     10.141.215.162:55996 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:55330 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:53156 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:53172 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:47162 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:53180 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+2026-10-21 09:36:44,795 ERROR [vastclaw_ui.runtime] sub-agent american-express-credit-risk spawn failed for workflow wf-af3a62bd2c10
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/vastclaw_ui/runtime.py", line 2939, in _run_fanout
+    agents.append(fut.result())
+                  ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/vastclaw_ui/runtime.py", line 2506, in _spawn_one_subagent
+    self._create_sandbox(
+  File "/usr/local/lib/python3.11/site-packages/vastclaw_ui/runtime.py", line 2376, in _create_sandbox
+    gw.write_file(ref.id, RUNNER_CONFIG_IN_SANDBOX, self._runner_config_bytes())
+  File "/usr/local/lib/python3.11/site-packages/vastclaw_ui/openshell_spawn.py", line 204, in write_file
+    result = client.exec(
+             ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/openshell/sandbox.py", line 599, in exec
+    for item in self.exec_stream(
+  File "/usr/local/lib/python3.11/site-packages/openshell/sandbox.py", line 565, in exec_stream
+    for event in stream:
+  File "/usr/local/lib/python3.11/site-packages/grpc/_channel.py", line 547, in __next__
+    return self._next()
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/grpc/_channel.py", line 965, in _next
+    raise self
+grpc._channel._MultiThreadedRendezvous: <_MultiThreadedRendezvous of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "supervisor relay failed: code: 'The service is currently unavailable', message: "supervisor session not connected""
+	debug_error_string = "UNAVAILABLE:supervisor relay failed: code: 'The service is currently unavailable', message: "supervisor session not connected""
+>
+2026-10-21 09:36:44,801 WARNING [vastclaw_ui.runtime] workflow wf-af3a62bd2c10: 1/3 sub-agent spawn(s) failed
+INFO:     10.141.215.162:47168 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:53184 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:53186 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:41280 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:41296 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:41298 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:60078 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:44976 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:44958 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:44960 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:60674 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:60676 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:44998 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:44986 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:45002 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:55688 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:55702 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:55718 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:48374 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:49154 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:49170 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:49178 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:53554 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:49192 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:53564 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:49200 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:44730 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:44746 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:44750 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:40740 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:44762 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:46984 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:46996 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:52586 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:47008 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:47014 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:52602 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:47018 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:47804 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:47820 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:47822 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:41120 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:33482 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:33492 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:33502 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:47716 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:33510 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:47720 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:33520 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:33522 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:42528 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:42540 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:42550 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:35032 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:42556 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:52988 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:52992 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:52994 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:43128 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:43132 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:35768 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:35772 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:35776 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:55560 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:33110 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:33114 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:33130 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:51726 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:33144 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:51740 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:33146 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:58858 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:58874 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:55848 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:50792 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:50804 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:50814 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:55274 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:50830 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:55290 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:50842 - "GET /api/v1/workflows/wf-af3a62bd2c10/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:50840 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:32972 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:32976 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:36140 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:41908 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:41916 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:59308 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:59316 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:58504 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:58508 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:58518 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:32974 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:35332 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:35632 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:35640 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:35338 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:58016 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:46842 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:37274 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:48266 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:48272 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:59216 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:59218 - "POST /api/v1/login HTTP/1.1" 200 OK
+INFO:     10.42.1.115:59232 - "GET /api/v1/me HTTP/1.1" 200 OK
+INFO:     10.42.1.115:59244 - "GET /api/v1/platform/model HTTP/1.1" 200 OK
+INFO:     10.141.215.162:33802 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:35096 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:35110 - "GET /api/v1/me HTTP/1.1" 200 OK
+INFO:     10.42.1.115:35126 - "GET /api/v1/platform/model HTTP/1.1" 200 OK
+INFO:     10.141.215.162:44414 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:35138 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:44416 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:54156 - "GET /api/v1/me HTTP/1.1" 200 OK
+INFO:     10.42.1.115:54162 - "GET /api/v1/platform/model HTTP/1.1" 200 OK
+INFO:     10.42.1.115:54172 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:47432 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:49878 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:50566 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:49882 - "POST /api/v1/login HTTP/1.1" 401 Unauthorized
+INFO:     10.141.215.162:50570 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:49196 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:44610 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:41504 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:36594 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:36606 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:41512 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:57640 - "POST /api/v1/login HTTP/1.1" 200 OK
+INFO:     10.42.1.115:57648 - "GET /api/v1/me HTTP/1.1" 200 OK
+INFO:     10.42.1.115:57664 - "GET /api/v1/platform/model HTTP/1.1" 200 OK
+INFO:     10.42.1.115:57694 - "GET /api/v1/workflows HTTP/1.1" 200 OK
+INFO:     10.42.1.115:57684 - "GET /api/v1/sandboxes HTTP/1.1" 200 OK
+INFO:     10.42.1.115:57678 - "GET /api/v1/stats HTTP/1.1" 200 OK
+INFO:     10.42.1.115:57700 - "POST /api/v1/login HTTP/1.1" 200 OK
+INFO:     10.42.1.115:57710 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 404 Not Found
+INFO:     10.42.1.115:57716 - "POST /api/v1/login HTTP/1.1" 200 OK
+INFO:     10.141.215.162:56782 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:57742 - "GET /api/v1/workflows/wf-7af4965e8d09/reports HTTP/1.1" 200 OK
+INFO:     10.42.1.115:57724 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:57726 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:57770 - "GET /api/v1/platform/model HTTP/1.1" 200 OK
+INFO:     10.42.1.115:57756 - "GET /api/v1/workflows/wf-7af4965e8d09/reports HTTP/1.1" 200 OK
+2026-10-21 09:41:17,793 INFO [httpx] HTTP Request: GET http://vastclaw-mcp-finance.vastclaw-finance.svc.cluster.local:8080/sse "HTTP/1.1 200 OK"
+2026-10-21 09:41:17,833 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-finance.vastclaw-finance.svc.cluster.local:8080/messages/?session_id=6c235051cf4e400a9ec2b33af86b5c27 "HTTP/1.1 202 Accepted"
+2026-10-21 09:41:17,835 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-finance.vastclaw-finance.svc.cluster.local:8080/messages/?session_id=6c235051cf4e400a9ec2b33af86b5c27 "HTTP/1.1 202 Accepted"
+2026-10-21 09:41:17,836 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-finance.vastclaw-finance.svc.cluster.local:8080/messages/?session_id=6c235051cf4e400a9ec2b33af86b5c27 "HTTP/1.1 202 Accepted"
+2026-10-21 09:41:17,839 INFO [vastclaw.rag_client] MCP list_tools ok at http://vastclaw-mcp-finance.vastclaw-finance.svc.cluster.local:8080/sse: ['memory_recall', 'memory_write', 'structured_query', 'transcript_search', 'similar_calls', 'list_call_metadata', 's3_list', 's3_get_text', 's3_put_text', 'fs_list', 'fs_read', 'fs_write']
+2026-10-21 09:41:17,840 INFO [vastclaw_ui.app] MCP tools live for finance: ['transcript_search', 'similar_calls', 'list_call_metadata']
+INFO:     10.42.1.115:57768 - "GET /api/v1/tools?department=finance HTTP/1.1" 200 OK
+INFO:     10.141.215.162:58680 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:58682 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:55110 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:53948 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:54250 - "POST /api/v1/workflows/wf-c018b21a33a2/turns HTTP/1.1" 200 OK
+2026-10-21 09:41:38,686 INFO [httpx] HTTP Request: GET http://vastclaw-mcp-sales.vastclaw-sales.svc.cluster.local:8080/sse "HTTP/1.1 200 OK"
+2026-10-21 09:41:38,699 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-sales.vastclaw-sales.svc.cluster.local:8080/messages/?session_id=6d3990fc5c054ed2a5ed86bebb1941f3 "HTTP/1.1 202 Accepted"
+2026-10-21 09:41:38,701 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-sales.vastclaw-sales.svc.cluster.local:8080/messages/?session_id=6d3990fc5c054ed2a5ed86bebb1941f3 "HTTP/1.1 202 Accepted"
+2026-10-21 09:41:38,702 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-sales.vastclaw-sales.svc.cluster.local:8080/messages/?session_id=6d3990fc5c054ed2a5ed86bebb1941f3 "HTTP/1.1 202 Accepted"
+INFO:     10.42.1.115:54252 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:51586 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:51588 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:54258 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:33372 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:33030 - "GET /healthz HTTP/1.1" 200 OK
+2026-10-21 09:41:57,615 ERROR [vastclaw_ui.openshell_spawn] OpenShell exec failed label=wf-c018b21a33a2-0bf
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/vastclaw_ui/openshell_spawn.py", line 236, in _run
+    result = client.exec(
+             ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/openshell/sandbox.py", line 599, in exec
+    for item in self.exec_stream(
+  File "/usr/local/lib/python3.11/site-packages/openshell/sandbox.py", line 565, in exec_stream
+    for event in stream:
+  File "/usr/local/lib/python3.11/site-packages/grpc/_channel.py", line 547, in __next__
+    return self._next()
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/grpc/_channel.py", line 965, in _next
+    raise self
+grpc._channel._MultiThreadedRendezvous: <_MultiThreadedRendezvous of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "exec relay closed before the command reported an exit status"
+	debug_error_string = "UNAVAILABLE:exec relay closed before the command reported an exit status"
+>
+2026-10-21 09:41:58,590 ERROR [vastclaw_ui.openshell_spawn] OpenShell exec failed label=wf-c018b21a33a2-504
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/vastclaw_ui/openshell_spawn.py", line 236, in _run
+    result = client.exec(
+             ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/openshell/sandbox.py", line 599, in exec
+    for item in self.exec_stream(
+  File "/usr/local/lib/python3.11/site-packages/openshell/sandbox.py", line 565, in exec_stream
+    for event in stream:
+  File "/usr/local/lib/python3.11/site-packages/grpc/_channel.py", line 547, in __next__
+    return self._next()
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/grpc/_channel.py", line 965, in _next
+    raise self
+grpc._channel._MultiThreadedRendezvous: <_MultiThreadedRendezvous of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "exec relay closed before the command reported an exit status"
+	debug_error_string = "UNAVAILABLE:exec relay closed before the command reported an exit status"
+>
+INFO:     10.42.1.115:46542 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+2026-10-21 09:41:59,954 ERROR [vastclaw_ui.openshell_spawn] OpenShell exec failed label=wf-c018b21a33a2-5be
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/vastclaw_ui/openshell_spawn.py", line 236, in _run
+    result = client.exec(
+             ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/openshell/sandbox.py", line 599, in exec
+    for item in self.exec_stream(
+  File "/usr/local/lib/python3.11/site-packages/openshell/sandbox.py", line 565, in exec_stream
+    for event in stream:
+  File "/usr/local/lib/python3.11/site-packages/grpc/_channel.py", line 547, in __next__
+    return self._next()
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/grpc/_channel.py", line 965, in _next
+    raise self
+grpc._channel._MultiThreadedRendezvous: <_MultiThreadedRendezvous of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "exec relay closed before the command reported an exit status"
+	debug_error_string = "UNAVAILABLE:exec relay closed before the command reported an exit status"
+>
+2026-10-21 09:42:01,671 ERROR [vastclaw_ui.openshell_spawn] OpenShell exec failed label=wf-c018b21a33a2-dc1
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/vastclaw_ui/openshell_spawn.py", line 236, in _run
+    result = client.exec(
+             ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/openshell/sandbox.py", line 599, in exec
+    for item in self.exec_stream(
+  File "/usr/local/lib/python3.11/site-packages/openshell/sandbox.py", line 565, in exec_stream
+    for event in stream:
+  File "/usr/local/lib/python3.11/site-packages/grpc/_channel.py", line 547, in __next__
+    return self._next()
+           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/grpc/_channel.py", line 965, in _next
+    raise self
+grpc._channel._MultiThreadedRendezvous: <_MultiThreadedRendezvous of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "exec relay closed before the command reported an exit status"
+	debug_error_string = "UNAVAILABLE:exec relay closed before the command reported an exit status"
+>
+INFO:     10.141.215.162:36982 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:46554 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:36988 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:46562 - "POST /api/v1/login HTTP/1.1" 200 OK
+INFO:     10.42.1.115:46576 - "GET /api/v1/me HTTP/1.1" 200 OK
+INFO:     10.42.1.115:50998 - "GET /api/v1/platform/model HTTP/1.1" 200 OK
+INFO:     10.42.1.115:51004 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:51606 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:36028 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:34632 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:36042 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:34648 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:36236 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:51154 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:59442 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:55512 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:59458 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:55526 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:44774 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:59674 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:44784 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:38886 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:42126 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:42142 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:43206 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:43208 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:43316 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:43700 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+2026-10-21 09:43:23,698 INFO [vastclaw_ui.openshell_spawn] OpenShell CreateSandbox name=wf-c018b21a33a2-db0 endpoint=os-sales.vastclaw-sales.svc.cluster.local:8080 image=dcache-var.vastdata.com:5000/dev/solutions/vc-backend:latest
+INFO:     10.141.215.162:40490 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:40500 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:42246 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+2026-10-21 09:43:31,025 INFO [vastclaw_ui.openshell_spawn] OpenShell sandbox Ready name=wf-c018b21a33a2-db0 id=29a8b950-2fa4-4286-85c5-272fa63a1467 phase=2
+2026-10-21 09:43:31,288 INFO [vastclaw_ui.openshell_spawn] OpenShell exec start label=wf-c018b21a33a2-db0 sandbox_id=29a8b950-2fa4-4286-85c5-272fa63a1467 cmd=python -m vastclaw_ui.agent_runner
+2026-10-21 09:43:34,781 INFO [vastclaw_ui.openshell_spawn] OpenShell CreateSandbox name=wf-c018b21a33a2-c63 endpoint=os-sales.vastclaw-sales.svc.cluster.local:8080 image=dcache-var.vastdata.com:5000/dev/solutions/vc-backend:latest
+2026-10-21 09:43:34,791 INFO [vastclaw_ui.openshell_spawn] OpenShell CreateSandbox name=wf-c018b21a33a2-e26 endpoint=os-sales.vastclaw-sales.svc.cluster.local:8080 image=dcache-var.vastdata.com:5000/dev/solutions/vc-backend:latest
+INFO:     10.42.1.115:42250 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:40440 - "GET /healthz HTTP/1.1" 200 OK
+2026-10-21 09:43:39,892 INFO [vastclaw_ui.openshell_spawn] OpenShell sandbox Ready name=wf-c018b21a33a2-c63 id=89ac9640-9a75-4cad-9e5b-a7f1769e1a10 phase=2
+2026-10-21 09:43:39,947 INFO [vastclaw_ui.openshell_spawn] OpenShell sandbox Ready name=wf-c018b21a33a2-e26 id=5db15d59-419e-47d1-94c6-c4112ac09b63 phase=2
+2026-10-21 09:43:40,077 INFO [vastclaw_ui.openshell_spawn] OpenShell exec start label=wf-c018b21a33a2-c63 sandbox_id=89ac9640-9a75-4cad-9e5b-a7f1769e1a10 cmd=python -m vastclaw_ui.agent_runner
+2026-10-21 09:43:40,133 INFO [vastclaw_ui.openshell_spawn] OpenShell exec start label=wf-c018b21a33a2-e26 sandbox_id=5db15d59-419e-47d1-94c6-c4112ac09b63 cmd=python -m vastclaw_ui.agent_runner
+INFO:     10.42.1.115:37446 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:47572 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:47582 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:37448 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:41306 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:49570 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:56110 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:56346 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:56348 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:56116 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:58748 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:38270 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:53440 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:36468 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:53442 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:36480 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:34472 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:35830 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:40470 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:37436 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:40486 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:37438 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:53184 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:49818 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:40356 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:41880 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:40364 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:41882 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:56804 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:56950 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:39992 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:47726 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:47732 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:40006 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:57498 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:54498 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:49362 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:57680 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:57694 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:53934 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:53948 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:51724 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:39626 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:53006 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.141.215.162:53014 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:54096 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:50748 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:54102 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:35118 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:40350 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:35130 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:38908 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:44126 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:41090 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:49056 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:41098 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:49062 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:52540 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:40724 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:38400 - "GET /api/v1/workflows/wf-c018b21a33a2/detail HTTP/1.1" 200 OK
+INFO:     10.42.1.115:38416 - "POST /api/v1/login HTTP/1.1" 200 OK
+INFO:     10.141.215.162:46064 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:38422 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:46066 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:38430 - "POST /api/v1/workflows/wf-7af4965e8d09/turns HTTP/1.1" 200 OK
+2026-10-21 09:47:07,569 INFO [httpx] HTTP Request: GET http://vastclaw-mcp-finance.vastclaw-finance.svc.cluster.local:8080/sse "HTTP/1.1 200 OK"
+2026-10-21 09:47:07,580 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-finance.vastclaw-finance.svc.cluster.local:8080/messages/?session_id=bf6cd6cdb2c64d79b09f83082b1fe172 "HTTP/1.1 202 Accepted"
+2026-10-21 09:47:07,583 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-finance.vastclaw-finance.svc.cluster.local:8080/messages/?session_id=bf6cd6cdb2c64d79b09f83082b1fe172 "HTTP/1.1 202 Accepted"
+2026-10-21 09:47:07,584 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-finance.vastclaw-finance.svc.cluster.local:8080/messages/?session_id=bf6cd6cdb2c64d79b09f83082b1fe172 "HTTP/1.1 202 Accepted"
+2026-10-21 09:47:08,360 INFO [httpx] HTTP Request: GET http://vastclaw-mcp-finance.vastclaw-finance.svc.cluster.local:8080/sse "HTTP/1.1 200 OK"
+2026-10-21 09:47:08,364 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-finance.vastclaw-finance.svc.cluster.local:8080/messages/?session_id=3e3d27be5ffe4663bdafee050e2f57aa "HTTP/1.1 202 Accepted"
+2026-10-21 09:47:08,366 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-finance.vastclaw-finance.svc.cluster.local:8080/messages/?session_id=3e3d27be5ffe4663bdafee050e2f57aa "HTTP/1.1 202 Accepted"
+2026-10-21 09:47:08,369 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-finance.vastclaw-finance.svc.cluster.local:8080/messages/?session_id=3e3d27be5ffe4663bdafee050e2f57aa "HTTP/1.1 202 Accepted"
+2026-10-21 09:47:08,476 INFO [httpx] HTTP Request: POST http://vastclaw-mcp-finance.vastclaw-finance.svc.cluster.local:8080/messages/?session_id=3e3d27be5ffe4663bdafee050e2f57aa "HTTP/1.1 202 Accepted"
+INFO:     10.42.1.115:45320 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:47892 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:45334 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:46542 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:60666 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK
+INFO:     10.141.215.162:46556 - "GET /healthz HTTP/1.1" 200 OK
+INFO:     10.42.1.115:53780 - "GET /api/v1/workflows/wf-7af4965e8d09/detail HTTP/1.1" 200 OK

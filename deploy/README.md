@@ -93,7 +93,7 @@ Order inside the script:
 3. Platform — preflight, namespaces, RBAC, NemoClaw policy, OpenShell gateways, UI + Ingress
 4. MCP tools (per department)
 
-UI: `https://vastclaw.solutions.vastdata.com` (script prints `/etc/hosts`).
+UI host is `ingress.host` in `deploy/config/workflow-ui.config.yaml` (script prints `/etc/hosts`).
 Use the local admin username/password you configured; no default public credentials exist.
 
 **Agents:** set `runtime.mode: kubernetes`, `model.enabled: true`, `sandbox.storage_class: vastdata-block`, then re-run the same deploy command.

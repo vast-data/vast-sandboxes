@@ -1,0 +1,118 @@
+### backend pods
+NAME                                             READY   STATUS    RESTARTS   AGE   IP            NODE         NOMINATED NODE   READINESS GATES
+vastclaw-workflow-ui-backend-7b6cfdbc88-fhv9p    1/1     Running   0          15m   10.42.0.116   k8s-3121-1   <none>           <none>
+vastclaw-workflow-ui-frontend-5cdf47fd8f-fb8jt   1/1     Running   0          15m   10.42.1.115   k8s-3121-2   <none>           <none>
+
+### vastclaw-sales pods
+NAME                                  READY   STATUS    RESTARTS   AGE     IP            NODE         NOMINATED NODE   READINESS GATES
+os-sales-0                            1/1     Running   0          16m     10.42.1.111   k8s-3121-2   <none>           <none>
+vastclaw-mcp-sales-6cb7896c69-hr8xw   1/1     Running   0          14m     10.42.1.119   k8s-3121-2   <none>           <none>
+wf-af3a62bd2c10-191                   1/1     Running   0          11m     10.42.0.127   k8s-3121-1   <none>           <none>
+wf-af3a62bd2c10-42e                   1/1     Running   0          11m     10.42.1.123   k8s-3121-2   <none>           <none>
+wf-af3a62bd2c10-fe1                   1/1     Running   0          12m     10.42.0.121   k8s-3121-1   <none>           <none>
+wf-c018b21a33a2-c63                   1/1     Running   0          4m9s    10.42.1.142   k8s-3121-2   <none>           <none>
+wf-c018b21a33a2-db0                   1/1     Running   0          4m20s   10.42.1.139   k8s-3121-2   <none>           <none>
+wf-c018b21a33a2-e26                   1/1     Running   0          4m9s    10.42.1.143   k8s-3121-2   <none>           <none>
+
+### vastclaw-sales openshell
+NAME             READY   STATUS    RESTARTS   AGE   IP            NODE         NOMINATED NODE   READINESS GATES
+pod/os-sales-0   1/1     Running   0          16m   10.42.1.111   k8s-3121-2   <none>           <none>
+
+NAME               TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)             AGE   SELECTOR
+service/os-sales   ClusterIP   10.43.15.114   <none>        8080/TCP,9090/TCP   16m   app.kubernetes.io/instance=os-sales,app.kubernetes.io/name=openshell
+
+### vastclaw-sales sandboxes (Agent-Sandbox CRs)
+NAME                  READY   REASON              AGE
+wf-af3a62bd2c10-191   True    DependenciesReady   11m
+wf-af3a62bd2c10-42e   True    DependenciesReady   11m
+wf-af3a62bd2c10-fe1   True    DependenciesReady   12m
+wf-c018b21a33a2-c63   True    DependenciesReady   4m12s
+wf-c018b21a33a2-db0   True    DependenciesReady   4m23s
+wf-c018b21a33a2-e26   True    DependenciesReady   4m12s
+
+### vastclaw-sales pvcs
+NAME                                             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS     VOLUMEATTRIBUTESCLASS   AGE
+openshell-data-os-sales-0                        Bound    pvc-a01246d1-2052-42cf-b7db-dbd5bb8b9b4d   1Gi        RWO            local-path       <unset>                 16m
+wf-af3a62bd2c10                                  Bound    pvc-339a7968-2703-487e-a2fa-6b26aa91c684   10Gi       RWO            vastdata-block   <unset>                 14m
+wf-af3a62bd2c10-american-express-competitive-p   Bound    pvc-19b5d087-b2d5-487a-a4cf-3525de5ab46c   10Gi       RWO            vastdata-block   <unset>                 13m
+wf-af3a62bd2c10-american-express-credit-risk     Bound    pvc-3890a563-4765-4612-86e5-71dbdabf5488   10Gi       RWO            vastdata-block   <unset>                 13m
+wf-af3a62bd2c10-american-express-customer-spen   Bound    pvc-12ebe91a-922a-47a2-b695-c1bc9b547d6d   10Gi       RWO            vastdata-block   <unset>                 13m
+wf-c018b21a33a2                                  Bound    pvc-e0a44965-371e-4bd6-b786-9e185facdec3   10Gi       RWO            vastdata-block   <unset>                 14m
+wf-c018b21a33a2-call-scoring                     Bound    pvc-0112e63d-8c87-4c0d-8b82-c794290509cc   10Gi       RWO            vastdata-block   <unset>                 5m41s
+wf-c018b21a33a2-competitor-mentions              Bound    pvc-bc1c337d-a562-41d2-8bd4-959e6dc664c8   10Gi       RWO            vastdata-block   <unset>                 5m41s
+wf-c018b21a33a2-ge-aviation-recovery             Bound    pvc-e4d4af49-b77f-4dcf-a202-a8c4654cb3e0   10Gi       RWO            vastdata-block   <unset>                 13m
+wf-c018b21a33a2-ge-competitive-pressure          Bound    pvc-22180712-4ea2-499f-a12b-2e05eca9cf17   10Gi       RWO            vastdata-block   <unset>                 13m
+wf-c018b21a33a2-ge-demand-outlook                Bound    pvc-b18f02e8-0c8c-4fc4-9969-c7bdce3751a6   10Gi       RWO            vastdata-block   <unset>                 13m
+wf-c018b21a33a2-ge-industrial-orders             Bound    pvc-6389ee17-8687-403a-b983-8c9c3f53c21b   10Gi       RWO            vastdata-block   <unset>                 13m
+wf-c018b21a33a2-similar-conversations            Bound    pvc-de241886-9162-4182-b87b-f4fcc3b45706   10Gi       RWO            vastdata-block   <unset>                 5m41s
+
+### vastclaw-sales volumesnapshots
+NAME                                             READYTOUSE   SOURCEPVC                                        SOURCESNAPSHOTCONTENT   RESTORESIZE   SNAPSHOTCLASS             SNAPSHOTCONTENT                                    CREATIONTIME   AGE
+snap-wf-af3a62bd2c10-american-express-c-41b028   true         wf-af3a62bd2c10-american-express-competitive-p                           0             vastdata-block-snapshot   snapcontent-c62ec463-eef3-4f35-bcaa-b8a84c63be40   9m12s          9m13s
+snap-wf-af3a62bd2c10-american-express-c-550c3f   true         wf-af3a62bd2c10-american-express-customer-spen                           0             vastdata-block-snapshot   snapcontent-f7cb1d27-ed5c-4bb6-b939-02b86d955390   9m25s          9m26s
+snap-wf-af3a62bd2c10-pre-fanout-69189e           true         wf-af3a62bd2c10                                                          0             vastdata-block-snapshot   snapcontent-b3a5d957-0587-4ad9-97d8-c606a15cce69   13m            13m
+snap-wf-c018b21a33a2-call-scoring-36e39c         true         wf-c018b21a33a2-call-scoring                                             0             vastdata-block-snapshot   snapcontent-b2870fc8-ffaf-40da-aa96-b6b15e9cbadb   2m6s           2m7s
+snap-wf-c018b21a33a2-competitor-mention-e7e0ef   true         wf-c018b21a33a2-competitor-mentions                                      0             vastdata-block-snapshot   snapcontent-ba2f30fa-0559-4397-9fa9-25fcb2293e0f   2m15s          3m11s
+snap-wf-c018b21a33a2-ge-aviation-recove-74b133   true         wf-c018b21a33a2-ge-aviation-recovery                                     0             vastdata-block-snapshot   snapcontent-e284eed8-ac46-467a-ae9b-a2dbdf66595d   9m2s           9m3s
+snap-wf-c018b21a33a2-ge-competitive-pre-25fe67   true         wf-c018b21a33a2-ge-competitive-pressure                                  0             vastdata-block-snapshot   snapcontent-8a4c9c53-5b98-4657-b101-6a9658900e93   8m57s          8m59s
+snap-wf-c018b21a33a2-ge-demand-outlook-6c0739    true         wf-c018b21a33a2-ge-demand-outlook                                        0             vastdata-block-snapshot   snapcontent-e409daf2-a512-4aa8-823c-e95178f667d2   9m18s          11m
+snap-wf-c018b21a33a2-ge-industrial-orde-2cb58a   true         wf-c018b21a33a2-ge-industrial-orders                                     0             vastdata-block-snapshot   snapcontent-6b09a291-6fd3-40a0-a334-be7bca8a2ba1   9m7s           9m9s
+snap-wf-c018b21a33a2-pre-fanout-a5ba94           true         wf-c018b21a33a2                                                          0             vastdata-block-snapshot   snapcontent-661486ed-380b-4faf-8fb9-24507fa1e56a   5m46s          5m46s
+snap-wf-c018b21a33a2-pre-fanout-a83734           true         wf-c018b21a33a2                                                          0             vastdata-block-snapshot   snapcontent-5df9c398-d55d-41b0-9251-c066ba9f171a   13m            13m
+snap-wf-c018b21a33a2-similar-conversati-aa85b2   true         wf-c018b21a33a2-similar-conversations                                    0             vastdata-block-snapshot   snapcontent-cd242320-55e2-4fcb-9e86-87fb98d9009e   2m2s           2m3s
+
+### vastclaw-sales sandboxes
+NAME                  READY   REASON              AGE
+wf-af3a62bd2c10-191   True    DependenciesReady   11m
+wf-af3a62bd2c10-42e   True    DependenciesReady   11m
+wf-af3a62bd2c10-fe1   True    DependenciesReady   12m
+wf-c018b21a33a2-c63   True    DependenciesReady   4m15s
+wf-c018b21a33a2-db0   True    DependenciesReady   4m26s
+wf-c018b21a33a2-e26   True    DependenciesReady   4m15s
+
+### vastclaw-finance pods
+NAME                                    READY   STATUS    RESTARTS   AGE   IP            NODE         NOMINATED NODE   READINESS GATES
+os-finance-0                            1/1     Running   0          15m   10.42.1.114   k8s-3121-2   <none>           <none>
+vastclaw-mcp-finance-666c7c57b8-sqxst   1/1     Running   0          14m   10.42.1.117   k8s-3121-2   <none>           <none>
+wf-7af4965e8d09-3f5                     1/1     Running   0          11m   10.42.0.138   k8s-3121-1   <none>           <none>
+wf-7af4965e8d09-6c5                     1/1     Running   0          11m   10.42.0.136   k8s-3121-1   <none>           <none>
+wf-7af4965e8d09-925                     1/1     Running   0          12m   10.42.0.124   k8s-3121-1   <none>           <none>
+wf-7af4965e8d09-a42                     1/1     Running   0          11m   10.42.0.132   k8s-3121-1   <none>           <none>
+
+### vastclaw-finance openshell
+NAME               READY   STATUS    RESTARTS   AGE   IP            NODE         NOMINATED NODE   READINESS GATES
+pod/os-finance-0   1/1     Running   0          15m   10.42.1.114   k8s-3121-2   <none>           <none>
+
+NAME                 TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)             AGE   SELECTOR
+service/os-finance   ClusterIP   10.43.57.98   <none>        8080/TCP,9090/TCP   15m   app.kubernetes.io/instance=os-finance,app.kubernetes.io/name=openshell
+
+### vastclaw-finance sandboxes (Agent-Sandbox CRs)
+NAME                  READY   REASON              AGE
+wf-7af4965e8d09-3f5   True    DependenciesReady   11m
+wf-7af4965e8d09-6c5   True    DependenciesReady   11m
+wf-7af4965e8d09-925   True    DependenciesReady   12m
+wf-7af4965e8d09-a42   True    DependenciesReady   11m
+
+### vastclaw-finance pvcs
+NAME                                       STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS     VOLUMEATTRIBUTESCLASS   AGE
+openshell-data-os-finance-0                Bound    pvc-a625b3a1-a446-4e4f-acaf-7cd41092e6fa   1Gi        RWO            local-path       <unset>                 15m
+wf-7af4965e8d09                            Bound    pvc-5afea1b5-48a3-4d76-a65c-9e00516d99e4   10Gi       RWO            vastdata-block   <unset>                 14m
+wf-7af4965e8d09-ge-capital-allocation      Bound    pvc-d02bf8db-4e6f-46a1-8045-f4ca46822ef6   10Gi       RWO            vastdata-block   <unset>                 12m
+wf-7af4965e8d09-ge-guidance-cost-actions   Bound    pvc-d16f4a4c-39c0-4a56-b90d-f58323efeba1   10Gi       RWO            vastdata-block   <unset>                 12m
+wf-7af4965e8d09-ge-margin-risk             Bound    pvc-097ac497-bcc1-4657-b494-e8e5dfdaf9bb   10Gi       RWO            vastdata-block   <unset>                 12m
+wf-7af4965e8d09-ge-revenue-timing-risk     Bound    pvc-4c8b7026-7613-439f-b021-f2ec6a986b65   10Gi       RWO            vastdata-block   <unset>                 12m
+
+### vastclaw-finance volumesnapshots
+NAME                                             READYTOUSE   SOURCEPVC                                  SOURCESNAPSHOTCONTENT   RESTORESIZE   SNAPSHOTCLASS             SNAPSHOTCONTENT                                    CREATIONTIME   AGE
+snap-wf-7af4965e8d09-ge-capital-allocat-3bfaf9   true         wf-7af4965e8d09-ge-capital-allocation                              0             vastdata-block-snapshot   snapcontent-28ae819c-374e-4384-8fb1-7aea9fb50975   10m            10m
+snap-wf-7af4965e8d09-ge-guidance-cost-a-ca085b   true         wf-7af4965e8d09-ge-guidance-cost-actions                           0             vastdata-block-snapshot   snapcontent-d5dd0d33-0638-4652-9e8b-f4b3e0866ba4   9m58s          9m59s
+snap-wf-7af4965e8d09-ge-margin-risk-ad095b       true         wf-7af4965e8d09-ge-margin-risk                                     0             vastdata-block-snapshot   snapcontent-106a7fb6-2c31-4797-8cdf-c2a5d3ad191b   9m24s          9m27s
+snap-wf-7af4965e8d09-ge-revenue-timing--4dc3a6   true         wf-7af4965e8d09-ge-revenue-timing-risk                             0             vastdata-block-snapshot   snapcontent-1c0c113d-7ec3-4c3a-a7e2-f084c48d1158   9m36s          9m39s
+snap-wf-7af4965e8d09-pre-fanout-645f1d           true         wf-7af4965e8d09                                                    0             vastdata-block-snapshot   snapcontent-3d40baa3-b70e-4e2a-8672-41d611a5e842   13m            13m
+
+### vastclaw-finance sandboxes
+NAME                  READY   REASON              AGE
+wf-7af4965e8d09-3f5   True    DependenciesReady   11m
+wf-7af4965e8d09-6c5   True    DependenciesReady   11m
+wf-7af4965e8d09-925   True    DependenciesReady   12m
+wf-7af4965e8d09-a42   True    DependenciesReady   11m

@@ -1,0 +1,18 @@
+RETRY OUTCOMES
+==============
+
+VolumeSnapshot / VMS (503 SnapshotResultCode.NOT_ALLOWED)
+  volumes that hit a rejection : 0
+  recovered on retry           : 0
+  lost after all retries       : 0
+
+NIM / NGC model calls
+  retry attempts logged        : 0
+  synthesis fell back to local : 0
+
+OpenShell spawn
+  CreateSandbox / SandboxError : 0
+  exec / config-write failures : 5
+
+Verdict
+  transient failures occurred and were absorbed (or were teardown exec noise).

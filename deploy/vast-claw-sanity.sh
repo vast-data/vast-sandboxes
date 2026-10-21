@@ -59,12 +59,12 @@ case "${1:-}" in
 esac
 
 # ── CONFIG — edit before running ──────────────────────────────────────────────
-CLUSTER="${CLUSTER:-v3121}"
-BASE="${BASE:-}"                       # empty → https://vastclaw.solutions.vastdata.com
+BASE="${BASE:-}"
 BASE_DOMAIN="${BASE_DOMAIN:-vastdata.com}"
-SALES_USER="${SALES_USER:-sales-agent-1}"
-FINANCE_USER="${FINANCE_USER:-finance-agent-1}"
-SALES_PASS="${SALES_PASS:-Aa123456!}"  # VMS password for sales-agent-1
+CONFIG="${CONFIG:-$_SCRIPT_DIR/config/workflow-ui.config.yaml}"
+SALES_USER="${SALES_USER:-}"
+FINANCE_USER="${FINANCE_USER:-}"
+SALES_PASS="${SALES_PASS:-}"
 FINANCE_PASS="${FINANCE_PASS:-}"       # empty → same as SALES_PASS
 WORKFLOWS_COUNT_PER_DEP="${WORKFLOWS_COUNT_PER_DEP:-1}"
 TIMEOUT_SECS="${TIMEOUT_SECS:-900}"        # per research run (observed max ~520s)
@@ -87,13 +87,48 @@ DEPARTMENT_NS=(vastclaw-sales vastclaw-finance)
 # ─────────────────────────────────────────────────────────────────────────────
 
 if [ -z "$BASE" ]; then
-  [ -n "$CLUSTER" ] || { echo -e "${RED}✗ set CLUSTER or BASE${NC}"; exit 1; }
-  BASE="https://vastclaw.solutions.vastdata.com"
+  _host="$(vc_yaml_block_value "$CONFIG" ingress host)"
+  [ -n "$_host" ] || { echo -e "${RED}✗ ingress.host is not set in $CONFIG${NC}"; exit 1; }
+  case "$_host" in
+    http://*|https://*) BASE="$_host" ;;
+    *) BASE="https://$_host" ;;
+  esac
+  unset _host
 fi
 
+# auth.users in the deploy config. First non-admin user for that department.
+vc_dept_login() {
+  awk -v dept="$1" '
+    /^auth:/ { a=1; next }
+    a && /^[A-Za-z]/ { a=0 }
+    a && /^  users:/ { u=1; next }
+    u && /^  [^ ]/ { u=0 }
+    u && /^    [^ :]+:/ {
+      if (name != "" && d == dept && admin != "true" && pass != "") { print name; print pass; emitted=1; exit }
+      name=$1; sub(/:$/, "", name); d=""; pass=""; admin=""
+      next
+    }
+    u && /^      department:/ { d=$2; gsub(/"/, "", d) }
+    u && /^      password:/ { pass=$2; gsub(/"/, "", pass) }
+    u && /^      is_admin:/ { admin=$2 }
+    END { if (!emitted && name != "" && d == dept && admin != "true" && pass != "") { print name; print pass } }
+  ' "$CONFIG"
+}
+
+if [ -z "$SALES_USER" ] || [ -z "$SALES_PASS" ]; then
+  _pair="$(vc_dept_login sales)"
+  SALES_USER="${SALES_USER:-${_pair%%$'\n'*}}"
+  SALES_PASS="${SALES_PASS:-${_pair#*$'\n'}}"
+fi
+if [ -z "$FINANCE_USER" ] || [ -z "$FINANCE_PASS" ]; then
+  _pair="$(vc_dept_login finance)"
+  FINANCE_USER="${FINANCE_USER:-${_pair%%$'\n'*}}"
+  FINANCE_PASS="${FINANCE_PASS:-${_pair#*$'\n'}}"
+fi
+unset _pair
 FINANCE_PASS="${FINANCE_PASS:-$SALES_PASS}"
-[ -n "$SALES_PASS" ] || { echo -e "${RED}✗ set SALES_PASS in CONFIG${NC}"; exit 1; }
-[ -n "$FINANCE_PASS" ] || { echo -e "${RED}✗ set FINANCE_PASS in CONFIG (or leave empty to reuse SALES_PASS)${NC}"; exit 1; }
+[ -n "$SALES_USER" ] && [ -n "$SALES_PASS" ] || { echo -e "${RED}✗ no sales login in $CONFIG${NC}"; exit 1; }
+[ -n "$FINANCE_USER" ] && [ -n "$FINANCE_PASS" ] || { echo -e "${RED}✗ no finance login in $CONFIG${NC}"; exit 1; }
 
 case "$WORKFLOWS_COUNT_PER_DEP" in
   1|2|3) ;;
@@ -1173,8 +1208,9 @@ preflight_openshell() {
     fi
 
     if kubectl -n "$ns" get configmap vastclaw-nemoclaw-blueprint >/dev/null 2>&1; then
-      if [ -n "$(kubectl -n "$ns" get configmap vastclaw-nemoclaw-blueprint \
-        -o jsonpath='{.data.sandbox-policy\.yaml}' 2>/dev/null | head -c 1)" ]; then
+      policy_bytes="$(kubectl -n "$ns" get configmap vastclaw-nemoclaw-blueprint \
+        -o go-template='{{with index .data "sandbox-policy.yaml"}}{{len .}}{{end}}' 2>/dev/null || true)"
+      if [ -n "$policy_bytes" ] && [ "$policy_bytes" != "0" ]; then
         ok "$ns: NemoClaw blueprint ConfigMap (policy present)"
       else
         fail "$ns: vastclaw-nemoclaw-blueprint missing sandbox-policy.yaml — re-run ./deploy/nemoclaw/vast-claw-nemoclaw.sh"

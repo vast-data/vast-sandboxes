@@ -14,7 +14,7 @@ Mechanics: [`ARCHITECTURE.md`](ARCHITECTURE.md). Deploy: [`../deploy/README.md`]
 | --- | --- |
 | Department boundary | `sales` / `finance` — each has its own K8s namespace, MCP server, persona, and VastDB memory schema |
 | VastDB identity | One S3 user, `platform.s3_user` in `platform.s3_group`, for both departments |
-| VMS login | UI users (`sales-agent-1`, `finance-agent-1`) authenticate via VMS; app JWT carries `{sub, department, is_admin}` |
+| VMS login | Department users authenticate via VMS; app JWT carries `{sub, department, is_admin}` |
 | Scoped APIs | Workflows and stats are filtered by JWT department (`admin` sees all) |
 | Sandbox placement | OpenShell sandboxes + PVCs only in `vastclaw-<dept>` |
 | MCP identity | Tools pinned to the department; optional `s3_*` bucket scope |

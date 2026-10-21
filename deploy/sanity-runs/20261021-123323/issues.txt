@@ -1,0 +1,8 @@
+backend	5	Traceback (most recent call last):
+backend	5	status = StatusCode.UNAVAILABLE
+backend	4	debug_error_string = "UNAVAILABLE:exec relay closed before the command reported an exit status"
+backend	1	raise self._exception
+backend	1	details = "supervisor relay failed: code: 'The service is currently unavailable', message: "supervisor session not connected""
+backend	1	debug_error_string = "UNAVAILABLE:supervisor relay failed: code: 'The service is currently unavailable', message: "supervisor session not connected""
+backend	1	<ts>,954 ERROR [vastclaw_ui.openshell_spawn] OpenShell exec failed label=wf-<id>
+backend	1	<ts>,801 WARNING [vastclaw_ui.runtime] workflow wf-<id>: 1/3 sub-agent spawn(s) failed

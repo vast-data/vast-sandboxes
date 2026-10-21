@@ -27,7 +27,8 @@ A config edit does nothing until you re-run deploy. Unknown keys are silently ig
 | `sandbox` | Block PVC / clone / snapshot / wake |
 | `agent_sandbox` | OpenShell gateway + keep-alive |
 | `auth` | JWT + VMS users → departments |
-| `tls` | Optional ingress certificate paths (deploy only; the app ignores this) |
+| `tls` | Ingress certificate paths (deploy only; the app ignores this) |
+| `ingress` | Public UI host (deploy and sanity; the app ignores this) |
 | `platform` | Buckets, S3 user (`s3_user` in `s3_group`), VMS role, corpus table. Deploy creates them. The app ignores this. |
 | `departments` | Personas, evidence type, UI features |
 

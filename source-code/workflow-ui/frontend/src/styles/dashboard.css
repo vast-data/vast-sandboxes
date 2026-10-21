@@ -95,7 +95,7 @@
 .sc-chip {
   font-family: var(--font-code);
   font-size: 12.5px;
-  color:
+  color: #1fd9fe;
   background: rgba(31, 217, 254, 0.08);
   border: 1px solid rgba(31, 217, 254, 0.3);
   border-radius: var(--radius-pill);
@@ -179,7 +179,7 @@
 .inspector::-webkit-scrollbar-thumb,
 .summary-view::-webkit-scrollbar-thumb,
 .timeline::-webkit-scrollbar-thumb {
-  background:
+  background: #24365a;
   border-radius: 10px;
   border: 2px solid transparent;
   background-clip: content-box;
@@ -187,6 +187,6 @@
 .inspector::-webkit-scrollbar-thumb:hover,
 .summary-view::-webkit-scrollbar-thumb:hover,
 .timeline::-webkit-scrollbar-thumb:hover {
-  background:
+  background: #34507f;
   background-clip: content-box;
 }

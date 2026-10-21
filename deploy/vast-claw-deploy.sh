@@ -22,20 +22,29 @@ CONTROLLER_SH="$SCRIPT_DIR/openshell/agent-sandbox-controller.sh"
 TOOLS_SH="$SCRIPT_DIR/vast-claw-tools.sh"
 
 apply_ui_manifest() {
-  local backend frontend
+  local backend frontend host
   backend="$(vc_yaml_block_value "$CONFIG" runtime agent_image)"
   frontend="$(vc_yaml_block_value "$CONFIG" runtime frontend_image)"
+  host="${HOST:-$(vc_yaml_block_value "$CONFIG" ingress host)}"
+  host="${host#https://}"; host="${host#http://}"; host="${host%%/*}"
   [ -n "$backend" ] && [ -n "$frontend" ] || {
     echo -e "${RED}✗ runtime.agent_image and runtime.frontend_image are required in $CONFIG${NC}"; exit 1; }
+  [ -n "$host" ] || { echo -e "${RED}✗ ingress.host is not set in $CONFIG${NC}"; exit 1; }
   sed -e "s|TLS_SECRET_NAME|$TLS_SECRET_NAME|g" \
+      -e "s|__VC_INGRESS_HOST__|$host|g" \
       -e "s|__VC_BACKEND_IMAGE__|$backend|g" \
       -e "s|__VC_FRONTEND_IMAGE__|$frontend|g" \
       "$UI_MANIFEST" | kubectl apply -f -
 }
 
 delete_ui_manifest() {
-  sed -e "s/TLS_SECRET_NAME/$TLS_SECRET_NAME/g" "$UI_MANIFEST" \
-    | kubectl delete -f - --ignore-not-found
+  local host="${HOST:-}"
+  [ -n "$host" ] || [ ! -f "$CONFIG" ] || host="$(vc_yaml_block_value "$CONFIG" ingress host)"
+  host="${host#https://}"; host="${host#http://}"; host="${host%%/*}"
+  [ -n "$host" ] || host="localhost"
+  sed -e "s|TLS_SECRET_NAME|$TLS_SECRET_NAME|g" \
+      -e "s|__VC_INGRESS_HOST__|$host|g" \
+      "$UI_MANIFEST" | kubectl delete -f - --ignore-not-found
 }
 
 settle() {
@@ -155,11 +164,8 @@ if [ -n "${1:-}" ]; then
   fi
 fi
 
-HOST="${INGRESS_HOST:-vastclaw.solutions.vastdata.com}"
-
 echo "🚀 vast-claw — Full deploy"
 echo "========================="
-echo "  HTTPS: $HOST"
 
 echo -e "${YELLOW}Models (chat + embed must already be serving)…${NC}"
 if ! python3 "$SCRIPT_DIR/lib/check_models.py" "$CONFIG"; then
@@ -181,6 +187,10 @@ echo -e "${YELLOW}Checking prerequisites...${NC}"
   echo -e "${RED}✗ config not found: $CONFIG${NC}"
   echo "  cp deploy/config/workflow-ui.config.example.yaml deploy/config/workflow-ui.config.yaml"
   echo "  then fill the copy."; exit 1; }
+HOST="${INGRESS_HOST:-$(vc_yaml_block_value "$CONFIG" ingress host)}"
+HOST="${HOST#https://}"; HOST="${HOST#http://}"; HOST="${HOST%%/*}"
+[ -n "$HOST" ] || { echo -e "${RED}✗ ingress.host is not set in $CONFIG${NC}"; exit 1; }
+echo "  HTTPS: $HOST"
 if grep -q "CHANGE_ME_LONG_RANDOM" "$CONFIG"; then
   echo -e "${RED}✗ jwt_secret is still CHANGE_ME_LONG_RANDOM in $CONFIG${NC}"
   echo "  Set it, e.g.: openssl rand -hex 32"; exit 1; fi

@@ -130,10 +130,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - vastclaw.solutions.vastdata.com
+        - __VC_INGRESS_HOST__
       secretName: TLS_SECRET_NAME
   rules:
-    - host: vastclaw.solutions.vastdata.com
+    - host: __VC_INGRESS_HOST__
       http:
         paths:
           - path: /

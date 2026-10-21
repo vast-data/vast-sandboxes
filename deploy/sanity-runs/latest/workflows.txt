@@ -1,0 +1,3 @@
+wf-5498907904ae	sales-delete	sales/American Express — spending & credit signals
+wf-269406545aee	sales-a	sales/GE industrial outlook — demand & competition
+wf-2a81f0cee5f8	finance-a	finance/GE earnings — guidance & margin risk

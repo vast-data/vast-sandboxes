@@ -1,36 +1,36 @@
 :root {
   /* Cool slate / graphite — desaturated from the old heavy navy and lifted two
      more stops lighter so the UI reads calmer on the eyes while staying dark. */
-  --bg-primary:
-  --bg-nav:
-  --bg-card:
-  --bg-card-hover:
-  --bg-input:
-  --bg-table-header:
+  --bg-primary: #2c3446;
+  --bg-nav: #333d53;
+  --bg-card: #3a4560;
+  --bg-card-hover: #47536f;
+  --bg-input: #3e4966;
+  --bg-table-header: #333d53;
 
-  --border:
-  --border-subtle:
-  --border-accent:
+  --border: #4f5b7c;
+  --border-subtle: #3c4763;
+  --border-accent: #8bafdb;
 
-  --accent:
-  --accent-hover:
-  --accent-dim:
-  --positive:
+  --accent: #73c8fd;
+  --accent-hover: #b7e3ff;
+  --accent-dim: #505f7f;
+  --positive: #3ddc97;
 
   /* High-contrast text on dark surfaces. Older tokens pushed secondary copy too far
      into gray (#7a898e) — hard to read on graphite cards. Hierarchy is brightness +
      weight, not muddy low-contrast gray. */
-  --text-primary:
-  --text-secondary:
-  --text-dim:
-  --text-muted:
+  --text-primary: #ffffff;
+  --text-secondary: #e9eef1;
+  --text-dim: #d2dadd;
+  --text-muted: #bcc5ca;
   --text: var(--text-primary);
 
-  --success:
-  --warning:
-  --danger:
-  --danger-bg:
-  --running:
+  --success: #54e7de;
+  --warning: #e8af6f;
+  --danger: #e86f6f;
+  --danger-bg: #381a1a;
+  --running: #73c8fd;
 
   /* Inter for UI/body (clean, enterprise-grade), Sora for display headings (modern
      geometric grotesque) — the pairing reads far more "mature" than a single humanist. */
@@ -58,6 +58,7 @@
 
 html,
 body,
+#root {
   height: 100%;
 }
 

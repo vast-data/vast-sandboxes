@@ -12,13 +12,13 @@
 
 /* ---- Canvas ---- */
 .graph.turbo {
-  background-color:
+  background-color: #070d18;
   background-image: radial-gradient(circle at 22% 14%, rgba(115, 200, 253, 0.1), transparent 42%),
     radial-gradient(circle at 82% 88%, rgba(61, 220, 151, 0.09), transparent 46%);
 }
 .graph.turbo .react-flow__attribution {
   background: transparent;
-  color:
+  color: #3b4b70;
 }
 .graph.turbo .react-flow__controls {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
@@ -26,12 +26,12 @@
   overflow: hidden;
 }
 .graph.turbo .react-flow__controls-button {
-  background:
-  border-bottom: 1px solid
-  color:
+  background: #12203c;
+  border-bottom: 1px solid #24365c;
+  color: #cfe0f5;
 }
 .graph.turbo .react-flow__controls-button:hover {
-  background:
+  background: #1b2c4d;
 }
 .graph.turbo .react-flow__controls-button svg {
   fill: currentColor;
@@ -46,9 +46,9 @@
 
 /* ---- Node ---- */
 .turbo-node {
-  --g1:
-  --g2:
-  --tn-bg:
+  --g1: #73c8fd;
+  --g2: #3ddc97;
+  --tn-bg: #0c1830;
   position: relative;
   border-radius: 12px;
   border: 1.6px solid transparent;
@@ -58,21 +58,21 @@
   cursor: pointer;
 }
 .turbo-node.tn-ok {
-  --g1:
-  --g2:
+  --g1: #54e7de;
+  --g2: #3ddc97;
 }
 .turbo-node.tn-running {
-  --g1:
-  --g2:
+  --g1: #73c8fd;
+  --g2: #3ddc97;
   animation: tn-rotate 4s linear infinite;
 }
 .turbo-node.tn-error {
-  --g1:
-  --g2:
+  --g1: #e86f6f;
+  --g2: #e8af6f;
 }
 .turbo-node.tn-idle {
-  --g1:
-  --g2:
+  --g1: #4a5e88;
+  --g2: #8bafdb;
 }
 
 .turbo-glow {
@@ -114,11 +114,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color:
+  color: #eaf6ff;
   background: linear-gradient(
     135deg,
     color-mix(in srgb, var(--g1) 32%, #10203b),
-    color-mix(in srgb, var(--g2) 32%,
+    color-mix(in srgb, var(--g2) 32%, #10203b)
   );
   border: 1px solid color-mix(in srgb, var(--g1) 40%, transparent);
 }
@@ -130,7 +130,7 @@
 .turbo-title {
   font-weight: 700;
   font-size: 14px;
-  color:
+  color: #eef3f5;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -151,12 +151,12 @@
   border: 1px solid transparent;
 }
 .tn-role.lead {
-  color:
+  color: #ffa82e;
   background: rgba(255, 168, 46, 0.14);
   border-color: rgba(255, 168, 46, 0.42);
 }
 .tn-role.openshell {
-  color:
+  color: #9ef0c8;
   background: rgba(61, 220, 151, 0.12);
   border-color: rgba(61, 220, 151, 0.45);
 }
@@ -189,15 +189,15 @@
   z-index: 2;
 }
 .tn-badge.ok {
-  background:
-  color:
+  background: #3ddc97;
+  color: #062015;
 }
 .tn-badge.err {
-  background:
-  color:
+  background: #e86f6f;
+  color: #2a0d0d;
 }
 .tn-badge.idle {
-  background:
+  background: #4a5e88;
 }
 .tn-badge.spin {
   background: conic-gradient(from 0deg, #73c8fd, #3ddc97, rgba(115, 200, 253, 0.15));
@@ -208,8 +208,8 @@
 .turbo-handle.react-flow__handle {
   width: 7px;
   height: 7px;
-  background:
-  border: 1.5px solid
+  background: #3ddc97;
+  border: 1.5px solid #0a1424;
 }
 
 /* ---- Edges: soft glow under the gradient stroke ---- */
