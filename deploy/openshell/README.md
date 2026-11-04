@@ -20,3 +20,7 @@ Blueprint + policy + hard constraints: [`../nemoclaw/README.md`](../nemoclaw/REA
 
 Gateway Service DNS: `os-<dept>.vastclaw-<dept>.svc.cluster.local:8080`
 (must match `agent_sandbox.gateway_endpoint_template`).
+
+Chart and Python SDK are both **0.0.85**. Keep that pair. `0.1.x` rejects `enforcement: enforce`. This client does not pass `workspace=` (`0.0.99` added that argument).
+
+`make_storage_class_default: "false"` leaves the cluster default StorageClass alone. Set `"true"` only when the cluster has no default. The gateway disk does not name a class and stays Pending until one exists. Agent workspace PVCs already request `vastdata-block`.

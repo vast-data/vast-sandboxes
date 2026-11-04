@@ -13,4 +13,7 @@ workspace_storage_size: "10Gi"
 image_pull_secret: ""
 
 workspace_storage_class: "vastdata-block"
+# "false" when the cluster already has a default StorageClass.
+# "true" only when it has none — the gateway disk names no class and stays Pending.
+# Agent workspace PVCs already request vastdata-block.
 make_storage_class_default: "false"

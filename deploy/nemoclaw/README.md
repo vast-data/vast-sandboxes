@@ -68,7 +68,7 @@ Subject: `default` SA in `vastclaw-observability` (the UI backend).
 
 ## Sandbox policy enforcement
 
-Deny-by-default. Every network endpoint sets `enforcement: enforce` (the string the 0.0.85 gateway accepts). Applied at create / startup; a bad policy fails the spawn. A host or tool that is not listed fails the request.
+Deny-by-default. Every network endpoint sets `enforcement: enforce` (the string gateway 0.0.85 accepts). `0.1.x` rejects that string. Applied at create / startup; a bad policy fails the spawn. A host or tool that is not listed fails the request.
 
 ### Filesystem + process
 
@@ -87,7 +87,7 @@ wildcards do not match.
 | --- | --- |
 | `vast_rag_mcp` | This dept's MCP only (`vastclaw-mcp-<dept>…:8080`); MCP methods + **named tools** |
 | `nvidia_api` | NIM host:ports (chat + embeddings paths only) — rendered from `model.base_url` / `embed_base_url` |
-| `vastdb_data_plane` | VastDB / S3 VIPs + VMS IP (data + auth endpoints) |
+| `vastdb_data_plane` | VastDB / S3 VIPs + VMS IP — rendered from `s3.endpoint`, `vdb.endpoint`, `auth.vms_host` |
 
 Also bind which **binaries** may use each policy (`node`, `openclaw`, `python`).
 
@@ -118,6 +118,7 @@ rules:
 | --- | --- |
 | List every host explicitly, lowercase | Use `*.lab` wildcards |
 | Set NIM endpoint once in `model.base_url` / `embed_base_url`, re-run apply | Hand-edit `nvidia_api` host/port (it's rendered — edits are overwritten) |
+| Set `s3.endpoint`, `vdb.endpoint`, and `auth.vms_host`, re-run apply | Paste lab hosts over `__VAST_S3_HOST__`, `__VAST_VDB_HOST__`, `__VAST_VMS_HOST__` (apply overwrites them) |
 | Filter tools with `params.name` | Invent keys like `tool:` (silently dropped historically; parse is strict now) |
 | Quote UIDs: `"10002"` | Unquoted ints or usernames |
 | Re-apply ConfigMap then use **new** sandboxes | Expect running sandboxes to pick up an edit |

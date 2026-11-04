@@ -23,7 +23,7 @@ Config keys: **[`deploy/config/README.md`](../deploy/config/README.md)**.
 
 1. Copy `deploy/config/workflow-ui.config.example.yaml` to `workflow-ui.config.yaml` (gitignored) and fill endpoints, `platform.view_policy`, `platform.manager_role`, `platform.s3_group`, and user passwords. Deploy creates the buckets, the S3 user in that group, the UI logins, and the tables.
 2. `python3` on the deploy host (preflight is stdlib-only).
-3. Build and push the images below. The tags must match `runtime.agent_image`, `runtime.frontend_image`, and `runtime.mcp_image` in the config. Deploy does not build images.
+3. Build and push the images below. The tags must match `runtime.agent_image`, `runtime.frontend_image`, and `runtime.mcp_image` in the config. Deploy does not build images. Leave `openclaw@2026.7.35` in the backend Dockerfile (`2026.8` and `@latest` fail inside the sandbox). OpenShell chart and Python SDK stay `0.0.85` together. The ingress class in `deploy/k8s/30-workflow-ui.yaml` is `nginx`. Full list: [`deploy/README.md`](../deploy/README.md) (“Another cluster”).
 4. Install block CSI once (`deploy/csi/vast-block-csi.sh`). The deploy script installs the Agent-Sandbox controller.
 
 Deploy refuses to apply if preflight fails (`deploy/lib/check_prereqs.sh`):

@@ -53,7 +53,24 @@ docker build -f source-code/mcp-server/Dockerfile \
 docker push "$REG/vc-mcp-vast-tools:latest"
 ```
 
-`vc-backend` is both the API and the OpenClaw agent image (no separate agent image).
+`vc-backend` is both the API and the OpenClaw agent image (no separate agent image). The Dockerfile installs `openclaw@2026.7.35`. `2026.8` and `@latest` store sessions in SQLite and fail inside the sandbox (`SQLITE_CANTOPEN`).
+
+---
+
+## Another cluster
+
+Keep these pins together. The image tags and the UI host already come from config.
+
+| Pin | Stay on | What breaks |
+| --- | --- | --- |
+| OpenShell chart (`deploy/config/openshell.config.yaml` `chart_version`) and Python `openshell` (`requirements.txt`, `pyproject.toml`) | `0.0.85` for both | `0.1.x` rejects `enforcement: enforce`. This client does not pass `workspace=`; that argument is on `0.0.99`. |
+| OpenClaw in the backend Dockerfile | `openclaw@2026.7.35` | `2026.8` / `@latest` → `SQLITE_CANTOPEN` in the sandbox |
+| PVC storage requests | `_pvc_resources` in `runtime.py` | Kubernetes client 37 rejects `V1ResourceRequirements` on a PVC. The helper uses `V1VolumeResourceRequirements`. |
+
+- Ingress class in `deploy/k8s/30-workflow-ui.yaml` is `nginx`. Change that field when the cluster uses another class (Traefik, for example). `ingress.host` and `runtime.*_image` are already filled from config. Leave the registry out of the YAML.
+- Sandbox policy files keep `__VAST_S3_HOST__`, `__VAST_VDB_HOST__`, `__VAST_VMS_HOST__`, and the NIM placeholders. Apply fills them from `s3.endpoint`, `vdb.endpoint`, `auth.vms_host`, and `model.base_url` / `embed_base_url`. Put the real hosts in the config and re-run deploy.
+- `make_storage_class_default` stays `"false"` when a StorageClass is already default. Set `"true"` only when the cluster has none. The OpenShell gateway disk does not name a class, so it stays Pending until something is default. Agent workspace PVCs already request `vastdata-block`.
+- `./deploy/vast-claw-snapshot-smoke.sh` syncs the writer before the clone. A block clone or snapshot misses data still in that pod's cache. Sync again before the snapshot if the writer has written since.
 
 ---
 
@@ -72,7 +89,7 @@ cp deploy/csi/vast-block-csi.config.example.yaml deploy/csi/vast-block-csi.confi
 kubectl -n vast-block-csi get pods   # block-vast-node-* → 2/2
 ```
 
-Optional smoke: `./deploy/vast-claw-snapshot-smoke.sh`.
+Optional smoke: `./deploy/vast-claw-snapshot-smoke.sh` (flush the writer first — see Another cluster).
 
 ---
 
